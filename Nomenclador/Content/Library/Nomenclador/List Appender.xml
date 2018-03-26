@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="d0b09595-8326-4ed4-840b-46a704386aa5">
+  <descriptionCdata><![CDATA[d0b09595-8326-4ed4-840b-46a704386aa5.55d6f1ae-1d86-4742-9e3e-b3dd817b2dfb.prompt=Key Name\:
+d0b09595-8326-4ed4-840b-46a704386aa5.5e9068a0-4161-4fcf-8486-86d1ab023738.prompt=Delimiter\:
+d0b09595-8326-4ed4-840b-46a704386aa5.description=<pre>Useful Op to keep a running results.\nTakes a string input (resultText) and appends this to a global context key of "runningResults". As a result, the context key whose name is in the keyName input will be appended with the string from the input resultText.\n\nInput Parameters\:\nkeyName - name of context key to append to\nresultText - string input to append\ndelimiter - (leave blank for none) the delimiter to put between what is already in keyName before appending resultText\n\nResponses\:\nsuccess - assigned the context variable\n\nReturns\:\nThe value of the context variable it appended to.\n\nContext\:\nrunningResults\n\nScriptlet Example\:\ncurrentResults \= scriptletContext.get("runningResults");\n\nif (currentResults \=\= null) {\n   currentResults \= resultText;\n} else {\n   currentResults +\= resultText;\n}\n\n\nscriptletContext.putGlobal("runningResults", currentResults);</pre>
+d0b09595-8326-4ed4-840b-46a704386aa5.fd5f76f8-bfaf-4335-b21e-6cdee17f4c1b.prompt=String to Append \:
+]]></descriptionCdata>
+  <annotation>d0b09595-8326-4ed4-840b-46a704386aa5.description</annotation>
+  <name>List Appender</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="55d6f1ae-1d86-4742-9e3e-b3dd817b2dfb">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>keyName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>d0b09595-8326-4ed4-840b-46a704386aa5.55d6f1ae-1d86-4742-9e3e-b3dd817b2dfb.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="fd5f76f8-bfaf-4335-b21e-6cdee17f4c1b">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>resultText</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>d0b09595-8326-4ed4-840b-46a704386aa5.fd5f76f8-bfaf-4335-b21e-6cdee17f4c1b.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="5e9068a0-4161-4fcf-8486-86d1ab023738">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>delimiter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>d0b09595-8326-4ed4-840b-46a704386aa5.5e9068a0-4161-4fcf-8486-86d1ab023738.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <scriptlet id="3918febe-b781-4461-acb9-ece686dd100e">
+    <annotation></annotation>
+    <name>Operation List Appender (f6e6cb22-1802-4fca-9f9b-4c699c486aa6)</name>
+    <script>currentResults = scriptletContext.get(keyName);
+
+if (currentResults == null) {
+   currentResults = resultText;
+}else if (delimiter == null) {
+   currentResults += resultText;
+}
+else {
+   currentResults += delimiter + resultText;
+}
+
+scriptletContext.put(keyName, currentResults);
+scriptletResult=currentResults;
+</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="7e93aea1-646f-41b3-8aa1-63515b26dfb9">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="1a535db0-1dba-4689-a9d9-b79deacac22e">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="b7e41d38-2098-495c-aecc-a1489009a80a">
+    <baseIcon>jar.png</baseIcon>
+    <basePath>Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="29d9ce94-4d77-47df-9576-f844f4bce2d2">
+        <baseIcon>add.png</baseIcon>
+        <basePath>Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

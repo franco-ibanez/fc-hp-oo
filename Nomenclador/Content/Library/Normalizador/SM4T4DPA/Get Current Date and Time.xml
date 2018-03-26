@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="51057980-8e86-4250-9d78-06e211d6caaa">
+  <descriptionCdata><![CDATA[51057980-8e86-4250-9d78-06e211d6caaa.description=<pre>\nCheck the current date and time, and returns a java DateAndTime formatted string of it. If locale is specified, it will return the date and time string based on the locale.Otherwise, default locale will be used.\n\nInputs\:\n    localeLang - The locale language for date and time string. \nExamples\:  en, ja, unix.\n    localeCountry - The locale country for date and time string. For example, US or JP. If localeLang is not specified, this input will be ingored.\n\nResult\:\n    Current date and time.\n\nResponses\:\n    success - Date/time retrieved successfully.   \n    failure - Date/time could not be retrieved.\n\nNotes.\n    1. If localeLang is 'unix' the localeCountry input is ignored and the result will be the current UNIX timestamp.\n</pre>
+]]></descriptionCdata>
+  <annotation>51057980-8e86-4250-9d78-06e211d6caaa.description</annotation>
+  <name>Get Current Date and Time</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="41c01bdc-b199-4099-801c-44dbad56b291">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>localeLang</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="d313d14c-83b5-478b-a050-5cf700625d97">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>localeCountry</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <scriptlet id="3df241a0-af83-4bc3-beeb-8e9218b7cf94">
+    <annotation></annotation>
+    <name>Operation Get Current Date and Time (237a5c37-ecbc-4ef1-af37-034e6f7e8f62)</name>
+    <script>scriptletResponse = &quot;failure&quot;;
+try
+{
+	var date = new java.util.Date();
+	var oLocale; // = java.util.Locale object
+	var formatter; // = java.text.DateFormat.getDateTimeInstance();
+	if(typeof localeLang != &apos;undefined&apos; &amp;&amp; null != localeLang &amp;&amp; localeLang.toLowerCase() == &quot;unix&quot;) {
+		var currentDateAndTime = new java.util.Date();
+	    var unixTimestamp = Math.floor(currentDateAndTime.getTime() / 1000);
+	    scriptletResult = &quot;&quot; + unixTimestamp;
+	    scriptletResponse = &quot;success&quot;;
+	}
+	else 
+	{
+		if(typeof localeLang != &apos;undefined&apos; &amp;&amp; null != localeLang &amp;&amp; localeLang.length &gt;0)
+		{
+			 if(typeof localeCountry != &apos;undefined&apos; &amp;&amp; null != localeCountry &amp;&amp; localeCountry.length &gt;0)
+			 {
+				  oLocale = new java.util.Locale(localeLang, localeCountry); //for exsample US or JP
+			 }
+			 else //only has language, no country
+			 {
+				  oLocale = new java.util.Locale(localeLang);//for example en or ja
+			 }
+			 formatter = new java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.LONG, java.text.DateFormat.LONG, oLocale);
+		}
+		else //use whatever default is
+		{
+			 formatter = new java.text.DateFormat.getDateTimeInstance();
+		}
+		scriptletResult = &quot;&quot;+formatter.format(date); 
+		scriptletResponse = &quot;success&quot;;
+	}
+}
+catch (e)
+{
+scriptletResponse = &quot;failure&quot;;
+scriptletResult = &quot;&quot;+e;
+}
+</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="b79ed8bd-7391-4cdc-93a3-53071f9b9f75">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="ddf26c9d-26c0-45cf-83b9-16c957650a1b">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="9cf3eac0-575d-4e70-9a1a-0c060e2f4d50">
+    <annotation></annotation>
+    <name>returnResult</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="90a2c52d-237b-498f-86cc-8cc7be52a137">
+    <baseIcon>calendar.png</baseIcon>
+    <basePath>Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="14bbc7b9-cfba-4a7f-88e5-f039528ea66f">
+        <baseIcon>view.png</baseIcon>
+        <basePath>Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

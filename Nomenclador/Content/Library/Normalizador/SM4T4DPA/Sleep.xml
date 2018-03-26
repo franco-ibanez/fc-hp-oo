@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="57778b76-192d-4be0-aad2-7e8b9407d7cc">
+  <descriptionCdata><![CDATA[57778b76-192d-4be0-aad2-7e8b9407d7cc.description=<pre>\nThis operation waits for the number of seconds specified in the "seconds" input.\n\nInputs\:\n    seconds - The number of seconds to wait.\n\nResults\:\n    resultString \u2013 This is the primary output. It contains the "completed sleep" message if the operation completed successfully and an error message otherwise. \n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n</pre>
+57778b76-192d-4be0-aad2-7e8b9407d7cc.f72cd3b7-51bf-46f5-bebc-5ee75c2677ad.prompt=Number of seconds to sleep\:
+]]></descriptionCdata>
+  <annotation>57778b76-192d-4be0-aad2-7e8b9407d7cc.description</annotation>
+  <name>Sleep</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="f72cd3b7-51bf-46f5-bebc-5ee75c2677ad">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>seconds</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>57778b76-192d-4be0-aad2-7e8b9407d7cc.f72cd3b7-51bf-46f5-bebc-5ee75c2677ad.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="4841a282-8133-4f49-aa4e-f7a20fc9fcbe">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="3aaf3604-7874-4528-9b2b-f4cb7282780a">
+          <annotation></annotation>
+          <name>result</name>
+          <fieldName>result</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="f2a160a1-bd52-4ecf-bfc0-95d9952fdaad">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>success</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="21bb4a32-63ea-4920-9b26-225559cdff4f">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="2bccdbb8-ba3b-47fa-ab4d-18728f67951b">
+          <annotation></annotation>
+          <name>result</name>
+          <fieldName>result</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="c0af3be7-ea63-42bc-b2e3-447700f28206">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>failure</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="b6681c63-100d-43fb-afd2-3a63c2595ed0">
+    <annotation></annotation>
+    <name>result</name>
+    <fieldName>resultString</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="c64b8494-09e2-432a-b1c1-ae52b1c5fba7">
+    <baseIcon>hourglass.png</baseIcon>
+    <basePath>Utilities</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>d1bbf441-824a-450e-afae-2ddec0e0f35e</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>
