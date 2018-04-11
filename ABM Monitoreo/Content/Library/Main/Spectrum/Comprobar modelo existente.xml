@@ -76,7 +76,7 @@ f51c32e0-63ad-43f0-9869-96101f49440e.e3943049-4583-44f1-9c1e-326fe79596b3.descri
           <isPersisted>true</isPersisted>
           <inputSymbol>url</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>http://10.200.60.142/spectrum/restful/models</value>
+          <value>http://spectrum.int.fibercorp.com.ar/spectrum/restful/models</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="e9dc22f8-6e58-450f-8175-9409809d5a5b">
@@ -553,6 +553,44 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
         <refId>f389fb81-422b-4a18-b6b9-70264bfda2cf</refId>
       </opRef>
       <assignments>
+        <flowVariableAssignment id="65bf786c-c30b-4fa6-b768-53a1326c10e1">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>model_handle</contextKey>
+          <expression id="da2c84e3-ca78-4fd2-8d9a-ff4ffe9bf6c2">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="a09653f2-c18e-4115-aea3-71644623930f">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>/*[name()=&apos;model-response-list&apos;]/*[name()=&apos;model-responses&apos;]/*[name()=&apos;model&apos;]/@mh</xpathQuery>
+              </xpathFilter>
+              <replaceAllFilter id="771b0a91-a35c-42ee-b5ad-87a8d40ac212">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>true</ignoreCase>
+                <searchString>mh=</searchString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="123c7e44-176b-4378-9bbf-17c43d962389">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&quot;</searchString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripWhitespaceFilter id="e0bb6e68-4da1-4f29-8975-995e4beabcd4">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
         <flowVariableAssignment id="bc06b69a-582e-4f9e-baaa-8b700b4aac82">
           <annotation></annotation>
           <name>assignment</name>
@@ -641,7 +679,21 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
       <historyCheckPointStep>true</historyCheckPointStep>
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
-      <bindings/>
+      <bindings>
+        <staticBinding id="5be153fc-2ea2-4677-bca1-a1036ccb9669">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>model_handle</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
       <transitions>
         <transition id="713dcd28-9836-400a-b539-f627a65a9006">
           <annotation></annotation>
@@ -662,7 +714,22 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
       </transitions>
       <properties/>
       <returnStepType>ERROR</returnStepType>
-      <assignments/>
+      <assignments>
+        <flowVariableAssignment id="05fbf3b5-5127-4127-9bd5-1b9af75eb2d9">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>model_handle</contextKey>
+          <expression id="88c0b641-044f-456f-9bce-ff95f9b1a8df">
+            <annotation></annotation>
+            <name>Input: model_handle</name>
+            <fieldName>model_handle</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
     </returnStep>
     <step id="dfd32863-c67a-488b-bd9a-1ca5f6e74cb6">
       <annotation>f51c32e0-63ad-43f0-9869-96101f49440e.dfd32863-c67a-488b-bd9a-1ca5f6e74cb6.description</annotation>
