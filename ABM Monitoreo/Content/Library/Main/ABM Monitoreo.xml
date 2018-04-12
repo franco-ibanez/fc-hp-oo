@@ -1534,7 +1534,7 @@ Por favor verificar y corregir.</value>
           <isPersisted>true</isPersisted>
           <inputSymbol>keyName</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>id_suscriber</value>
+          <value>tenant</value>
           <record>false</record>
         </staticBinding>
       </bindings>
@@ -1930,17 +1930,17 @@ Por favor verificar y corregir.</value>
           <value></value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="18bea97d-76f8-42f8-998d-dc45bf5be12d">
+        <staticBinding id="490d8ba0-aeec-46c2-9999-a45e6126a1b3">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>spectrum_server</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>10.200.60.142</value>
+          <value>spectrum.int.fibercorp.com.ar</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="8cdb8820-f40a-411d-9de1-7d8aa404743c">
@@ -2054,6 +2054,35 @@ Por favor verificar y corregir.</value>
             <y>0.0</y>
           </labelPosition>
         </transition>
+        <transition id="96386e8e-2af9-4d97-8d39-5d4f6f6b4613">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bfcbdffa-8f30-45b7-96fe-22733527bbe1</refId>
+          </destination>
+          <source>
+            <refId>a3d2ef91-ba16-4e83-af44-91030ab17a18</refId>
+          </source>
+          <positions>
+            <point>
+              <x>705.0</x>
+              <y>208.0</y>
+            </point>
+            <point>
+              <x>257.0</x>
+              <y>154.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
       </transitions>
       <properties/>
       <opRef>
@@ -2099,6 +2128,45 @@ Por favor verificar y corregir.</value>
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>ip_address</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cdab11fd-6af0-4580-aeba-405c1072cf07">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>spectrum_server</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="93534116-a1d9-4b58-8faa-b59411735bc8">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>usuario_ss</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dd65cb17-3eda-42a2-86ad-6a5c17542231">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password_ss</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <value></value>
           <record>false</record>
