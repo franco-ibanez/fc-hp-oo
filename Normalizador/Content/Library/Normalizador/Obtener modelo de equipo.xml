@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow id="1b391fc6-5ad7-4dbf-902b-94132e985fa0">
-  <descriptionCdata><![CDATA[1b391fc6-5ad7-4dbf-902b-94132e985fa0.39868f89-7500-4cc2-8326-282a343af4b3.prompt=Host\:
-1b391fc6-5ad7-4dbf-902b-94132e985fa0.46ed904c-0ed2-4f14-affc-bfc2e9776dd5.prompt=Community\:
+  <descriptionCdata><![CDATA[1b391fc6-5ad7-4dbf-902b-94132e985fa0.64f443ba-2894-4c6b-ab02-89c50c33d7db.description=<pre>Sends an SNMPv1 GET request to obtain value(s) for desired OID(s).\n\nInput Parameters\: \nhost - IP address/host name of SNMP agent.\nport - Port to which SNMP agent is listening (default is 161).\ncommunity - SNMP community group name for SNMP agent (default is public).\noid - Object identifier (OID) for which you want to get value, ex\: 1.3.6.1.2.1.1.6.0 for managed node location.  Can be a list of OIDs to get multiple values.\noidDelimiter - Delimiter for the oid input and result list (default is comma).\nvalueDelimiter - If multiple OIDs will be in the result, this delimiter will be used in the value result list (default is comma).\ntypeDelimiter - If multiple OIDs will be in the result, this delimiter will be used in the type result list (default is comma).\nretries - The number of attempts to retry the request if a timeout occurs (default is 0).\ntimeout - The time to wait for a response from the SNMP agent in milliseconds (default 1000ms which is 1 second).\n\nResponses\: \nsuccess - The value of the given OID(s) was retrieved.\nfailure - Value of the OID(s) cannot be retrieved.\n \nResults\:\nreturnResult - Value for the given OID(s) on success, reason for error on failure.\noid - List of OID(s) retrieved.\noidDelimiter - Delimiter that separates values in the oid result.\nvalue - List of values for the retrieved OID(s).\nvalueDelimiter - Delimiter that separates values in the value result.\ntype - List of types for the retrieved OID(s).\ntypeDelimiter - Delimiter that separates values in the type result.\nresponsePduError - An error description from the SNMP agent.\nresponsePduErrorIndex - The index of the OID request that caused the error (starts at 1).\n</pre>
 1b391fc6-5ad7-4dbf-902b-94132e985fa0.bf5c5a68-1471-48d4-bced-ec1797c5cf86.description=<pre>This operation iterates through a list of values. It is not recommended to modify the value of the "list" and "separator" inputs during the iteration process.\n\nInputs\:\n    list - The list to iterate through.\n    separator - A delimiter separating the list elements.\nDefault value\: \u2018,\u2019 (comma) \n\nResults\:\n    resultString - The current list element (if the response is "has more").\n\nResponses\:\n    has more - Another value was found in the list and it has been returned.\n    no more - The iterator has gone through the entire list. This response is returned once per list iteration.  A subsequent call to the List iterator operation restarts the list iteration process.\n    failure - The operation completed unsuccessfully.\n\nNote\:\n   The position of the iterator in the list is tracked by each step's unique identifier. Therefore, you can simultaneously iterate through the same list from multiple steps.\n</pre>
-1b391fc6-5ad7-4dbf-902b-94132e985fa0.e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516.description=<pre>Sends an SNMPv2 GET request to obtain value(s) for desired OID(s).\n\nInput Parameters\: \nhost - IP address/host name of SNMP agent.\nport - Port to which SNMP agent is listening (default is 161).\ncommunity - SNMP community group name for SNMP agent (default is public).\noid - Object identifier (OID) for which you want to get value, ex\: 1.3.6.1.2.1.1.6.0 for managed node location.  Can be a list of OIDs to get multiple values.\noidDelimiter - Delimiter for the oid input and result list (default is comma).\nvalueDelimiter - If multiple OIDs will be in the result, this delimiter will be used in the value result list (default is comma).\ntypeDelimiter - If multiple OIDs will be in the result, this delimiter will be used in the type result list (default is comma).\nretries - The number of attempts to retry the request if a timeout occurs (default is 0).\ntimeout - The time to wait for a response from the SNMP agent in milliseconds (default 1000ms which is 1 second).\n\nResponses\: \nsuccess - The value of given OID(s) was retrieved.\nfailure - Value of OID(s) cannot be retrieved.\n \nResults\:\nreturnResult - Value for the given OID(s) on success, reason for error on failure.\noid - List of OID(s) retrieved.\noidDelimiter - Delimiter that separates values in the oid result.\nvalue - List of values for the retrieved OID(s).\nvalueDelimiter - Delimiter that separates values in the value result.\ntype - List of types for the retrieved OID(s).\ntypeDelimiter - Delimiter that separates values in the type result.\nresponsePduError - An error description from the SNMP agent.\nresponsePduErrorIndex - The index of the OID request that caused the error (starts at 1).\n</pre>
 ]]></descriptionCdata>
   <annotation></annotation>
   <name>Obtener modelo de equipo</name>
@@ -95,19 +93,6 @@
           <value>Hippie2K@1048576|Hippie2K</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="47b7e955-b122-4288-8c3c-e7edea128baa">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>ipaddress</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
         <staticBinding id="bdc8fcd0-7362-41d0-820e-347741973e9a">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
@@ -123,35 +108,6 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="3af2467b-c115-4387-a449-4036e4d72a1d">
-          <annotation></annotation>
-          <name>has more</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>has more</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516</refId>
-          </destination>
-          <source>
-            <refId>bf5c5a68-1471-48d4-bced-ec1797c5cf86</refId>
-          </source>
-          <positions>
-            <point>
-              <x>349.0</x>
-              <y>360.0</y>
-            </point>
-            <point>
-              <x>338.0</x>
-              <y>487.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="f61a246b-3e99-4e8d-b422-539c70eeb9e7">
           <annotation></annotation>
           <name>failure</name>
@@ -181,7 +137,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="24afc3d3-fa4a-4414-916d-209b9731d29a">
+        <transition id="21679a39-2975-47df-8cd9-5caef56c77ac">
           <annotation></annotation>
           <name>no more</name>
           <command>NEXT</command>
@@ -190,7 +146,7 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>06ada0f5-5dd0-4620-96f2-2259355f04bd</refId>
+            <refId>2cc659b6-f9dc-44e4-93b9-a46e6542e301</refId>
           </destination>
           <source>
             <refId>bf5c5a68-1471-48d4-bced-ec1797c5cf86</refId>
@@ -201,8 +157,45 @@
               <y>34.0</y>
             </point>
             <point>
-              <x>243.0</x>
+              <x>107.67173269802825</x>
+              <y>63.98284922430119</y>
+            </point>
+            <point>
+              <x>209.68050719438332</x>
+              <y>185.9374734825134</y>
+            </point>
+            <point>
+              <x>229.0</x>
+              <y>248.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="3d7a04a1-50c4-4c6f-8177-5625c3775b80">
+          <annotation></annotation>
+          <name>has more</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>has more</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>64f443ba-2894-4c6b-ab02-89c50c33d7db</refId>
+          </destination>
+          <source>
+            <refId>bf5c5a68-1471-48d4-bced-ec1797c5cf86</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
               <y>34.0</y>
+            </point>
+            <point>
+              <x>343.0</x>
+              <y>255.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -233,381 +226,16 @@
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516">
-      <annotation>1b391fc6-5ad7-4dbf-902b-94132e985fa0.e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516.description</annotation>
-      <name>Obtener Hostname</name>
-      <bounds>
-        <x>0.0</x>
-        <y>215.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="72b08a85-2399-4965-9696-e266d93c3d9f">
-        <baseIcon>client_network.png</baseIcon>
-        <basePath>/Networking/</basePath>
-        <readOnly>false</readOnly>
-        <layers>
-          <iconSpec id="a76be220-b5c5-4327-811d-295a2519fe0b">
-            <baseIcon>receive.png</baseIcon>
-            <basePath>/Annotations/</basePath>
-            <readOnly>false</readOnly>
-            <layers/>
-          </iconSpec>
-        </layers>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <userInputBinding id="39868f89-7500-4cc2-8326-282a343af4b3">
-          <annotation></annotation>
-          <fromContextKey>ipaddress</fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>1b391fc6-5ad7-4dbf-902b-94132e985fa0.39868f89-7500-4cc2-8326-282a343af4b3.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <userInputBinding id="46ed904c-0ed2-4f14-affc-bfc2e9776dd5">
-          <annotation></annotation>
-          <fromContextKey>comunidad_snmp</fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>community</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>1b391fc6-5ad7-4dbf-902b-94132e985fa0.46ed904c-0ed2-4f14-affc-bfc2e9776dd5.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="bc0680bb-a304-4e6b-a7ac-379af46ac3fc">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>oid</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>1.3.6.1.2.1.1.2.0</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="da6700da-c632-495a-b767-dcc5eb7a6b50">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>oidDelimiter</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="30618d36-aa46-4d2b-ad05-911a8575d378">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>valueDelimiter</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="8190054f-cc9e-4ba4-a599-b440916c71a3">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>typeDelimiter</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="8b8efafe-4241-4585-8ef6-061941a93754">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>retries</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>2</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="40bc6e5c-1c6b-4dc7-bbab-acfba927acd7">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>timeout</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>1000</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="1a9fe306-8e1d-4c4e-acb1-1827542c8c19">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>bf5c5a68-1471-48d4-bced-ec1797c5cf86</refId>
-          </destination>
-          <source>
-            <refId>e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516</refId>
-          </source>
-          <positions>
-            <point>
-              <x>50.0</x>
-              <y>249.0</y>
-            </point>
-            <point>
-              <x>25.0</x>
-              <y>189.0</y>
-            </point>
-            <point>
-              <x>25.0</x>
-              <y>94.0</y>
-            </point>
-            <point>
-              <x>50.0</x>
-              <y>34.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="d1a2156e-03ec-401e-ad0b-bbdb648146fd">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>06ada0f5-5dd0-4620-96f2-2259355f04bd</refId>
-          </destination>
-          <source>
-            <refId>e0ceeeb3-ffdc-4ff7-ab56-a841ea6c7516</refId>
-          </source>
-          <positions>
-            <point>
-              <x>50.0</x>
-              <y>249.0</y>
-            </point>
-            <point>
-              <x>243.0</x>
-              <y>34.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>d7c6c975-c5c7-4138-b825-a35c41b7c04e</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="d99f7dd2-0739-49bd-8686-41501d11361a">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>OVERWRITE</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>tiene_enable</contextKey>
-          <expression id="fe9c1c30-bcd9-4154-b49a-d0baa3e9285a">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="c0c95773-fbd6-48e5-8bd4-7f9159fa895b">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.868.2.5</searchString>
-                <replaceString>false</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="e9838006-3342-476e-9520-47952e35ab41">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.835.2.12</searchString>
-                <replaceString>true</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="c107d7b9-5c9b-434c-9abe-af95dfe8c263">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.868.2.64</searchString>
-                <replaceString>false</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <stripTrailingFilter id="70c18977-e90a-45f1-9834-5de4d0b60fee">
-                <annotation></annotation>
-                <name>Strip</name>
-                <strip>1.3.6.1.4.1.2636.</strip>
-                <type>ALL_CHARACTERS_AFTER</type>
-              </stripTrailingFilter>
-              <replaceAllFilter id="ee4448f4-84cd-4cb2-98ed-719b1a79ec08">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.2636.</searchString>
-                <replaceString>false</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-        <flowVariableAssignment id="fc48d19c-ef1f-4894-9e6e-1696d1c6ca00">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>OVERWRITE</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>comandos</contextKey>
-          <expression id="c393c29e-8c34-4112-a0fb-5558f24e03d1">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="1a885c84-b675-45ae-b670-7dc9fe3dd366">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.868.2.5</searchString>
-                <replaceString>set system name ${nuevohostname}
-set device description ${nuevohostname}
-set system location &quot;${domicilio}&quot;
-quit</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="bb7eefc9-26e8-4431-9f68-bbe896d689ab">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.835.2.12</searchString>
-                <replaceString>configure
-sytem name ${nuevohostname}
-system description ${nuevohostname}
-system location &quot;${domicilio}&quot;
-exit
-write memory
-disable
-logout</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="8e70c65e-a7c0-44a1-b675-82785c9371d5">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.868.2.64</searchString>
-                <replaceString>System
-name ${nuevohostname}
-location ${domicilio}
-exit
-save start
-logout</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <stripTrailingFilter id="c691bde7-8292-4e0c-bc05-286075b3b53c">
-                <annotation></annotation>
-                <name>Strip</name>
-                <strip>1.3.6.1.4.1.9.</strip>
-                <type>ALL_CHARACTERS_AFTER</type>
-              </stripTrailingFilter>
-              <replaceAllFilter id="551227c3-ef2c-408e-bb07-b09a459df90d">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.9.</searchString>
-                <replaceString>conf t
-hostname ${nuevohostname}
-snmp-server location ${domicilio}
-end
-wr
-exit</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <stripTrailingFilter id="f58c7361-1863-44ab-bc77-1a63c2dda835">
-                <annotation></annotation>
-                <name>Strip</name>
-                <strip>1.3.6.1.4.1.2636.</strip>
-                <type>ALL_CHARACTERS_AFTER</type>
-              </stripTrailingFilter>
-              <replaceAllFilter id="30a5b229-afb4-457c-ac11-0dfaf7a85575">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>1.3.6.1.4.1.2636.</searchString>
-                <replaceString>configure
-set system host-name ${nuevohostname}
-set snmp location &quot;${domicilio}&quot;
-commit
-expect (.*\s*)*[#&gt;]
-exit
-exit</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
     <returnStep id="06ada0f5-5dd0-4620-96f2-2259355f04bd">
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>193.0</x>
+        <x>179.0</x>
         <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="04f5b96e-6e81-4c58-95c3-9680ebe372fa">
+      <iconSpec id="175bd813-d0c5-4113-b9ed-4e39a47eddc9">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -635,6 +263,32 @@ exit</replaceString>
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>comandos</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="37026fe7-3cfe-410b-a920-8b5f7d6f45f2">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>sysObjectId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="23cb0356-009d-43e6-9b4d-4f5a1f584c2c">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>falla_login</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <value></value>
           <record>false</record>
@@ -674,6 +328,34 @@ exit</replaceString>
       <properties/>
       <returnStepType>RESOLVED</returnStepType>
       <assignments>
+        <flowVariableAssignment id="a8c14793-bee9-410a-bb46-d62931d08308">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>sysObjectId</contextKey>
+          <expression id="27b09de7-1dec-477d-bff7-d18e088dbd12">
+            <annotation></annotation>
+            <name>Input: sysObjectId</name>
+            <fieldName>sysObjectId</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3899e832-a310-494c-b004-2b8279ddf293">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>falla_login</contextKey>
+          <expression id="59bcaf12-7fff-490c-81af-88d9b47c6a91">
+            <annotation></annotation>
+            <name>Input: falla_login</name>
+            <fieldName>falla_login</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
         <flowVariableAssignment id="5c28630a-a328-41ba-b26f-d6ad79b3c75f">
           <annotation></annotation>
           <name>assignment</name>
@@ -713,6 +395,12 @@ exit</replaceString>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="a5b19443-ea08-4744-8c09-c966f37a3af3">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -748,6 +436,429 @@ exit</replaceString>
       <returnStepType>ERROR</returnStepType>
       <assignments/>
     </returnStep>
+    <step id="64f443ba-2894-4c6b-ab02-89c50c33d7db">
+      <annotation>1b391fc6-5ad7-4dbf-902b-94132e985fa0.64f443ba-2894-4c6b-ab02-89c50c33d7db.description</annotation>
+      <name>SNMPv1 Get</name>
+      <bounds>
+        <x>0.0</x>
+        <y>204.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="c7973448-41d5-49d5-aac1-2d0f2dbbf9e9">
+        <baseIcon>client_network.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="ace1e579-87e6-497f-b498-373999da19b7">
+            <baseIcon>receive.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="f682703c-45e3-4ffe-a152-3ab60258aab0">
+          <annotation></annotation>
+          <fromContextKey>ipaddress</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${ipaddress}</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="15b95211-4b57-4d97-ba56-89c0b33bca82">
+          <annotation></annotation>
+          <fromContextKey>comunidad_snmp</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>community</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt></prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="50cef45b-0de0-4f1e-8e52-1fc7c96436e0">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>oid</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>1.3.6.1.2.1.1.2.0</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e6f80ccd-988b-4c4c-b03f-f510896d2516">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>oidDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c2bd5efb-4dc7-4783-a809-cc1601585733">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>valueDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5803be97-94cb-4b60-8abd-6b2736029107">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>typeDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f2daf173-63b5-490c-9ec7-119ab864ca42">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>retries</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>1</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="66698a71-8817-49ff-8c5e-4da2b2e08eef">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>1000</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="da23eb3f-fdb7-457d-9e7d-b32526c3ad1c">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bf5c5a68-1471-48d4-bced-ec1797c5cf86</refId>
+          </destination>
+          <source>
+            <refId>64f443ba-2894-4c6b-ab02-89c50c33d7db</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>238.0</y>
+            </point>
+            <point>
+              <x>75.0</x>
+              <y>178.0</y>
+            </point>
+            <point>
+              <x>75.0</x>
+              <y>94.0</y>
+            </point>
+            <point>
+              <x>50.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="52feed14-34f0-464c-a6a2-9ba53bc7caa7">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>06ada0f5-5dd0-4620-96f2-2259355f04bd</refId>
+          </destination>
+          <source>
+            <refId>64f443ba-2894-4c6b-ab02-89c50c33d7db</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>238.0</y>
+            </point>
+            <point>
+              <x>243.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>5ad55426-cefb-4417-868c-fffa8c7fd50a</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="a8cdf9e4-e377-4298-92e3-c026f87233b1">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>comandos</contextKey>
+          <expression id="b260db4e-6ddc-4e4d-9803-2586214fa85b">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="022c8a4c-ce46-46eb-a777-ab663481ad59">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.2.5</searchString>
+                <replaceString>set system name ${nuevohostname}
+set device description ${nuevohostname}
+set system location &quot;${domicilio}&quot;
+quit</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="ae7db961-90be-4b6c-bfba-756981b655f4">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.835.2.12</searchString>
+                <replaceString>configure
+sytem name ${nuevohostname}
+system description ${nuevohostname}
+system location &quot;${domicilio}&quot;
+exit
+write memory
+disable
+logout</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="58f54f99-84aa-4349-9c65-f5ee8c21eaa2">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.2.64</searchString>
+                <replaceString>System
+name ${nuevohostname}
+location ${domicilio}
+exit
+save start
+logout</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="d469bdd3-a006-46b2-9687-53fa489be451">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.1.3.2</searchString>
+                <replaceString>sys name=&quot;${nuevohostname}&quot;
+sys location=&quot;${domicilio}&quot;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="8c888591-4768-49ee-821a-0cf995b9fab1">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>1.3.6.1.4.1.9.</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <replaceAllFilter id="d07f6a52-efb0-4433-8d0e-d506df4dbd6a">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.9.</searchString>
+                <replaceString>conf t
+hostname ${nuevohostname}
+snmp-server location ${domicilio}
+end
+wr</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="92092498-3283-4706-b766-a7159c4c391f">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>1.3.6.1.4.1.2636.</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <replaceAllFilter id="d8810461-1525-407c-8637-8f25e61beb61">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.2636.</searchString>
+                <replaceString>configure
+set system host-name ${nuevohostname}
+set snmp location &quot;${domicilio}&quot;
+commit
+expect (.*\s*)*[#&gt;]
+exit</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="92d31e77-3817-49df-acaf-ec256a447c33">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>falla_login</contextKey>
+          <expression id="d796135a-0b3c-4974-a8c9-4bc13adc12a7">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="bb0e9317-bf2f-44cf-87ef-029aa261f34e">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.2.5</searchString>
+                <replaceString>login:</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="2a6c4b03-d0a7-4c5c-8736-aa3a97117262">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.1.3.2</searchString>
+                <replaceString>Login</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="346b94dd-41b8-4082-ab30-e1e48b6ed788">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>tiene_enable</contextKey>
+          <expression id="f194716d-8d5d-4a82-a758-c47f54ff89d4">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="d7c1cfd1-9af1-43a2-a263-581622e655d9">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.2.5</searchString>
+                <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="e90b6afe-2b03-49dd-ad1a-7cd99b9da402">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.835.2.12</searchString>
+                <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="3f4e6245-9e89-4eb9-9c82-c2e46ca44da2">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.2.64</searchString>
+                <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="1532a68c-e5fe-4cf0-a956-87d511293010">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.868.1.3.2</searchString>
+                <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="a926dbe6-0a1b-4419-b482-b62dda153690">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>1.3.6.1.4.1.2636.</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <replaceAllFilter id="8732f02a-1ae9-47e9-9775-e6a75f21640f">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.2636.</searchString>
+                <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3dbea4ef-16b2-48f8-adc6-6db0b39cb371">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>sysObjectId</contextKey>
+          <expression id="fd286f17-512c-4685-b997-9e2d138259b2">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
   </steps>
   <startSteps>bf5c5a68-1471-48d4-bced-ec1797c5cf86</startSteps>
 </flow>
