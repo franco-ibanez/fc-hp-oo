@@ -144,7 +144,7 @@
       <annotation>6c679cc6-ab3b-47f2-af1b-83c8d5e491cf.a0f0a0d7-2c29-45cb-be8a-ee1a5eb94c83.description</annotation>
       <name>List Iterator</name>
       <bounds>
-        <x>141.0</x>
+        <x>287.0</x>
         <y>0.0</y>
       </bounds>
       <layer>7</layer>
@@ -392,8 +392,8 @@
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>141.0</x>
-        <y>258.0</y>
+        <x>113.0</x>
+        <y>143.0</y>
       </bounds>
       <layer>3</layer>
       <hideInbound>false</hideInbound>
@@ -436,7 +436,7 @@
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>333.0</x>
+        <x>86.0</x>
         <y>0.0</y>
       </bounds>
       <layer>6</layer>
@@ -480,8 +480,8 @@
       <annotation></annotation>
       <name>Comandos Hostname</name>
       <bounds>
-        <x>333.0</x>
-        <y>130.0</y>
+        <x>496.0</x>
+        <y>140.0</y>
       </bounds>
       <layer>12</layer>
       <hideInbound>false</hideInbound>
@@ -513,6 +513,32 @@
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>nuevohostname</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0ee7bedf-28dc-45d7-90ad-48259e808967">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>sysObjectId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ffb7d48a-1f9f-4a52-a2b4-2b448711feae">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>falla_login</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <value></value>
           <record>false</record>
@@ -570,7 +596,7 @@
           <listDelimiter>,</listDelimiter>
           <value>noc,16qnang
 sdh,ok10
-backups_noc,ZildjianKZ</value>
+ION,private</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="b159abf7-a1a9-404d-930f-779c8f9f3f37">
@@ -614,43 +640,6 @@ backups_noc,ZildjianKZ</value>
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="fcfbdb50-7957-4be9-bff3-215888e1fa10">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>a0f0a0d7-2c29-45cb-be8a-ee1a5eb94c83</refId>
-          </destination>
-          <source>
-            <refId>a6da2c5e-ac8b-4010-9933-a804efdd89a8</refId>
-          </source>
-          <positions>
-            <point>
-              <x>328.5</x>
-              <y>116.52631578947368</y>
-            </point>
-            <point>
-              <x>339.0</x>
-              <y>82.0</y>
-            </point>
-            <point>
-              <x>283.0</x>
-              <y>51.0</y>
-            </point>
-            <point>
-              <x>191.0</x>
-              <y>50.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="828c2db1-9f36-4692-9f80-d056c9b56b67">
           <annotation></annotation>
           <name>failure</name>
@@ -680,6 +669,43 @@ backups_noc,ZildjianKZ</value>
             <y>-5.668580727711849</y>
           </labelPosition>
         </transition>
+        <transition id="ece6bfea-9463-45b3-be79-308a5db035de">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a0f0a0d7-2c29-45cb-be8a-ee1a5eb94c83</refId>
+          </destination>
+          <source>
+            <refId>a6da2c5e-ac8b-4010-9933-a804efdd89a8</refId>
+          </source>
+          <positions>
+            <point>
+              <x>546.0</x>
+              <y>174.0</y>
+            </point>
+            <point>
+              <x>510.0638320965102</x>
+              <y>119.83735755696374</y>
+            </point>
+            <point>
+              <x>400.7628465898203</x>
+              <y>46.621386404157064</y>
+            </point>
+            <point>
+              <x>337.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
       </transitions>
       <properties/>
       <opRef>
@@ -693,7 +719,7 @@ backups_noc,ZildjianKZ</value>
       <name>LogGeneral</name>
       <bounds>
         <x>0.0</x>
-        <y>258.0</y>
+        <y>143.0</y>
       </bounds>
       <layer>1</layer>
       <hideInbound>false</hideInbound>
@@ -810,8 +836,8 @@ backups_noc,ZildjianKZ</value>
       <annotation></annotation>
       <name>Obtener modelo de equipo</name>
       <bounds>
-        <x>333.0</x>
-        <y>258.0</y>
+        <x>289.0</x>
+        <y>143.0</y>
       </bounds>
       <layer>16</layer>
       <hideInbound>false</hideInbound>
@@ -898,7 +924,7 @@ backups_noc,ZildjianKZ</value>
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="79dddc60-4655-4956-82ba-e509d3cdad2a">
+        <transition id="7a7ad055-39e3-4ecb-8dee-7051337aec9f">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -907,19 +933,27 @@ backups_noc,ZildjianKZ</value>
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>b9076da1-b578-43df-b446-81b5ae522702</refId>
+            <refId>a0f0a0d7-2c29-45cb-be8a-ee1a5eb94c83</refId>
           </destination>
           <source>
             <refId>a480f171-9284-4d8c-b147-71c138804d15</refId>
           </source>
           <positions>
             <point>
-              <x>496.0</x>
-              <y>165.0</y>
+              <x>339.0</x>
+              <y>177.0</y>
             </point>
             <point>
-              <x>350.0</x>
-              <y>315.0</y>
+              <x>363.15847647364785</x>
+              <y>116.65625123948459</y>
+            </point>
+            <point>
+              <x>362.8366340289808</x>
+              <y>93.64451644579333</y>
+            </point>
+            <point>
+              <x>337.0</x>
+              <y>34.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -933,6 +967,34 @@ backups_noc,ZildjianKZ</value>
         <refId>1b391fc6-5ad7-4dbf-902b-94132e985fa0</refId>
       </opRef>
       <assignments>
+        <flowVariableAssignment id="5997fbc6-c590-40d5-a7e7-ca2c8a03c584">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>sysObjectId</contextKey>
+          <expression id="b10ccf32-9626-46f3-9e8a-63db309d4512">
+            <annotation></annotation>
+            <name>Result Field: sysObjectId</name>
+            <fieldName>sysObjectId</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="f5015e44-7228-46e0-b437-6bafcd8e7f0d">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>falla_login</contextKey>
+          <expression id="84fd977d-97f1-4560-88e7-42223901f478">
+            <annotation></annotation>
+            <name>Result Field: falla_login</name>
+            <fieldName>falla_login</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
         <flowVariableAssignment id="f16b721d-e7b5-410e-ad71-ef57d4cd6129">
           <annotation></annotation>
           <name>assignment</name>
