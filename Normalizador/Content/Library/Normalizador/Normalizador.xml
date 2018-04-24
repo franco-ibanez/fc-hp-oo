@@ -392,7 +392,7 @@
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>113.0</x>
+        <x>130.0</x>
         <y>143.0</y>
       </bounds>
       <layer>3</layer>
@@ -441,6 +441,12 @@
       </bounds>
       <layer>6</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="12d8f561-febf-4ec8-88df-68b0b45dc1c2">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -481,7 +487,7 @@
       <name>Comandos Hostname</name>
       <bounds>
         <x>496.0</x>
-        <y>140.0</y>
+        <y>143.0</y>
       </bounds>
       <layer>12</layer>
       <hideInbound>false</hideInbound>
@@ -596,7 +602,8 @@
           <listDelimiter>,</listDelimiter>
           <value>noc,16qnang
 sdh,ok10
-ION,private</value>
+ION,private
+admin,admin</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="b159abf7-a1a9-404d-930f-779c8f9f3f37">
@@ -723,6 +730,12 @@ ION,private</value>
       </bounds>
       <layer>1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="4bfd850e-0d98-48fc-84b6-f1fddbd95340">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -841,6 +854,12 @@ ION,private</value>
       </bounds>
       <layer>16</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="1f4522ae-26de-45de-bb4c-32dc44808e9a">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
