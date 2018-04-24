@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow id="2058bb31-8434-4d0c-ad15-6cb65335adc4">
   <descriptionCdata><![CDATA[2058bb31-8434-4d0c-ad15-6cb65335adc4.024a2aa2-731f-49e2-82cc-af5866bd4bc2.prompt=HostName\:
-2058bb31-8434-4d0c-ad15-6cb65335adc4.15803f01-e406-4c54-9622-d78618a34768.prompt=HostName\:
-2058bb31-8434-4d0c-ad15-6cb65335adc4.3b44200a-a686-46b6-a36b-aea792a14c5c.prompt=UserName\:
+2058bb31-8434-4d0c-ad15-6cb65335adc4.0f3f0356-b151-4553-8fca-736ed6d13572.prompt=Password\:
+2058bb31-8434-4d0c-ad15-6cb65335adc4.361ddcae-467b-4c51-9b9c-aaeacd12bd56.prompt=HostName\:
 2058bb31-8434-4d0c-ad15-6cb65335adc4.5711771b-3941-4b95-8caa-764fa8ab1908.description=<pre>Runs multiple SSH command by creating an ssh shell and checking output against regular expressions\n\nInputs\:\nhost - hostname or ip address\nport - the port number for running the command. It overwrites the port given inside the host input -in a syntax like host\:port-, if this exists.\ncommand - the commands to execute. This should be made up of 'send <command>' and 'expect <regular expression>' statements separated be newlines.\nusername - username to connect as\npassword - password\nprivateKeyFile - private key to be used during ssh authentication.\ntimeout - (optional, default 90 seconds) time in milliseconds to wait for the command to complete\nnewlineCharacters - The character sequence to send as the enter key being pressed after each 'send' statement in a send expect script is processed. Either '\\r\\n' '\\n' '\\r' or a comma delimited list of ASCII escape sequences.\ncharacterDelay - the delay in milliseconds between sending characters of the SSH commands. \n\nResponses\:\nsuccess - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nvisualized - the output of the command in XML format\nSTDOUT - the STDOUT of the command\n</pre>
+2058bb31-8434-4d0c-ad15-6cb65335adc4.68f98a35-21ad-4997-acf4-c75e6bb04cd6.transition.description=Created a SSH Shell session
 2058bb31-8434-4d0c-ad15-6cb65335adc4.715f5585-8b3e-43e0-9554-cd002d50a08e.description=<pre>Runs multiple SSH command by creating an ssh shell and checking output against regular expressions\n\nInputs\:\nhost - hostname or ip address\nport - the port number for running the command. It overwrites the port given inside the host input -in a syntax like host\:port-, if this exists.\ncommand - the commands to execute. This should be made up of 'send <command>' and 'expect <regular expression>' statements separated be newlines.\nusername - username to connect as\npassword - password\nprivateKeyFile - private key to be used during ssh authentication.\ntimeout - (optional, default 90 seconds) time in milliseconds to wait for the command to complete\nnewlineCharacters - The character sequence to send as the enter key being pressed after each 'send' statement in a send expect script is processed. Either '\\r\\n' '\\n' '\\r' or a comma delimited list of ASCII escape sequences.\ncharacterDelay - the delay in milliseconds between sending characters of the SSH commands. \n\nResponses\:\nsuccess - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nvisualized - the output of the command in XML format\nSTDOUT - the STDOUT of the command\n</pre>
 2058bb31-8434-4d0c-ad15-6cb65335adc4.942ac53c-3fe1-4fec-9d0b-368d1edf5c9d.description=<pre>This operation iterates through a list of values. It is not recommended to modify the value of the "list" and "separator" inputs during the iteration process.\n\nInputs\:\n    list - The list to iterate through.\n    separator - A delimiter separating the list elements.\nDefault value\: \u2018,\u2019 (comma) \n\nResults\:\n    resultString - The current list element (if the response is "has more").\n\nResponses\:\n    has more - Another value was found in the list and it has been returned.\n    no more - The iterator has gone through the entire list. This response is returned once per list iteration.  A subsequent call to the List iterator operation restarts the list iteration process.\n    failure - The operation completed unsuccessfully.\n\nNote\:\n   The position of the iterator in the list is tracked by each step's unique identifier. Therefore, you can simultaneously iterate through the same list from multiple steps.\n</pre>
+2058bb31-8434-4d0c-ad15-6cb65335adc4.aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0.description=<pre>\nCompares two strings, returning a true response if and only if they contain the same sequence of characters. A null string is considered to be equal to an empty string.\n\nInputs\:\n    string1 - The first string. \nDefault value\: "" (empty)\n    string2 - The second string.\nDefault value\: "" (empty)\n    ignoreCase - If set to 'true', then the comparison ignores case considerations. The two strings are considered equal ignoring case if they are of the same length and corresponding characters in the two strings are equal ignoring case. If set to any value other than 'true', then the strings must match exactly to be considered equal.\n\nResponses\:\n    true - If the two strings are equal.\n    false - If the two strings are not equal.\n\n</pre>
+2058bb31-8434-4d0c-ad15-6cb65335adc4.b670cb4f-c7b4-4b90-9508-01347d9c2d58.prompt=UserName\:
 2058bb31-8434-4d0c-ad15-6cb65335adc4.becb2429-9dbc-4907-9251-4f7a2e93f083.prompt=Password\:
 2058bb31-8434-4d0c-ad15-6cb65335adc4.c883c082-344d-4a7b-97a0-1b454e683e51.transition.description=Closed SSH Shell session
-2058bb31-8434-4d0c-ad15-6cb65335adc4.da0c3093-430f-4e30-82db-12d01d292160.prompt=Password\:
+2058bb31-8434-4d0c-ad15-6cb65335adc4.ce3fb8e1-6d18-4543-8601-db63f9dc89eb.description=<pre>This operation checks whether a string matches another string, using a specific matching rule. The "toMatch" input is the string that is checked for matching the "matchTo" expression. \n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex (The values are not case sensitive)\nDefault value\: Exact Match\n    toMatch - The string that is checked for matching.\n    matchTo - The string to match against.\nExample\: If "matchType" is \u201CRegEx\u201D, the "matchTo" input is a regular expression such as\: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Specifies whether to ignore case when matching or not.\nValid values\: False, True\nDefault value\: False\n\nResults\:\n    returnResult - This is the primary output. It contains the string "Matches" if the "toMatch" string matches the "matchTo" string. Otherwise, it contains the string "Does Not Match".  \n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n</pre>
 2058bb31-8434-4d0c-ad15-6cb65335adc4.eae3c474-6f39-40f5-bc22-093c643dfe83.prompt=UserName\:
-2058bb31-8434-4d0c-ad15-6cb65335adc4.f1c118f4-5dac-4dce-9d90-78807b08d6a1.transition.description=Created a SSH Shell session
 ]]></descriptionCdata>
   <annotation></annotation>
   <name>ComandosSSH2</name>
@@ -58,7 +60,7 @@
       <name>List Iterator</name>
       <bounds>
         <x>0.0</x>
-        <y>32.0</y>
+        <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -282,12 +284,12 @@
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>644.0</x>
-        <y>100.0</y>
+        <x>514.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>12</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="b35bbfa0-dcee-43e6-9832-4f3b82103580">
+      <iconSpec id="05f14036-8236-485f-af32-25638a9d5c9b">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -413,10 +415,10 @@
     </returnStep>
     <step id="18d5aae2-bc42-450b-ab19-a58268bf6c09">
       <annotation></annotation>
-      <name>SSH Shell Logon</name>
+      <name>Autenticar</name>
       <bounds>
         <x>0.0</x>
-        <y>225.0</y>
+        <y>325.0</y>
       </bounds>
       <layer>1</layer>
       <hideInbound>false</hideInbound>
@@ -461,6 +463,19 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
+        <staticBinding id="f4f721e2-051e-475f-9d23-f9b3555156bd">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>comandos</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
         <staticBinding id="010c780b-0534-4ec3-ade0-db9bccb04ee1">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
@@ -519,8 +534,8 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="f1c118f4-5dac-4dce-9d90-78807b08d6a1">
-          <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.f1c118f4-5dac-4dce-9d90-78807b08d6a1.transition.description</annotation>
+        <transition id="68f98a35-21ad-4997-acf4-c75e6bb04cd6">
+          <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.68f98a35-21ad-4997-acf4-c75e6bb04cd6.transition.description</annotation>
           <name>success</name>
           <command>NEXT</command>
           <linkMode>false</linkMode>
@@ -528,36 +543,7 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>5711771b-3941-4b95-8caa-764fa8ab1908</refId>
-          </destination>
-          <source>
-            <refId>18d5aae2-bc42-450b-ab19-a58268bf6c09</refId>
-          </source>
-          <positions>
-            <point>
-              <x>284.0</x>
-              <y>351.0</y>
-            </point>
-            <point>
-              <x>462.0</x>
-              <y>411.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>582.9023385379808</x>
-            <y>31.906446550033507</y>
-          </labelPosition>
-        </transition>
-        <transition id="a74e3f98-249e-4175-b3d1-d1eda35d6284">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>942ac53c-3fe1-4fec-9d0b-368d1edf5c9d</refId>
+            <refId>aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0</refId>
           </destination>
           <source>
             <refId>18d5aae2-bc42-450b-ab19-a58268bf6c09</refId>
@@ -568,16 +554,37 @@
               <y>259.0</y>
             </point>
             <point>
-              <x>75.0</x>
-              <y>199.0</y>
+              <x>668.0</x>
+              <y>262.0</y>
             </point>
-            <point>
-              <x>75.0</x>
-              <y>126.0</y>
-            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="ab6786ce-05ad-46d5-ae6d-6d7437d5e4d8">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>ce3fb8e1-6d18-4543-8601-db63f9dc89eb</refId>
+          </destination>
+          <source>
+            <refId>18d5aae2-bc42-450b-ab19-a58268bf6c09</refId>
+          </source>
+          <positions>
             <point>
               <x>50.0</x>
-              <y>66.0</y>
+              <y>359.0</y>
+            </point>
+            <point>
+              <x>103.0</x>
+              <y>199.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -591,6 +598,33 @@
         <refId>bdf77c8d-fa1f-4f7a-a467-9e40d3a7fac0</refId>
       </opRef>
       <assignments>
+        <flowVariableAssignment id="538a7a64-cb22-4f72-bd23-1a7fd319bf49">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>comandosSSH</contextKey>
+          <expression id="097c7526-594d-4b7d-837d-f1d1feedaafe">
+            <annotation></annotation>
+            <name>Input: comandos</name>
+            <fieldName>comandos</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <scriptletFilter id="c2731516-ed9d-4126-89b3-859f1fc69bd8">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="529fcfc8-a668-4dc6-a626-720d66c1ce2d">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>if (scriptletInput !== null) {
+		scriptletResult = comandos.replace( /^(?!expect)/gm , &apos;send &apos;);
+}</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
         <flowVariableAssignment id="70e24f69-a3ef-4073-9043-f7c2b1622d69">
           <annotation></annotation>
           <name>assignment</name>
@@ -609,6 +643,14 @@
                 <ignoreCase>false</ignoreCase>
                 <searchString>Auth fail</searchString>
                 <replaceString>Falla de autenticacion</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="4a7ff14e-c62b-4012-afb0-1f5e0091d98b">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>invalid server&apos;s version string</searchString>
+                <replaceString>El equipo utiliza SSH1</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
             </filters>
@@ -635,8 +677,8 @@
       <annotation></annotation>
       <name>SSH Shell Logoff</name>
       <bounds>
-        <x>437.0</x>
-        <y>207.0</y>
+        <x>514.0</x>
+        <y>225.0</y>
       </bounds>
       <layer>9</layer>
       <hideInbound>false</hideInbound>
@@ -728,20 +770,20 @@
           </source>
           <positions>
             <point>
-              <x>492.5</x>
-              <y>228.79425837320574</y>
+              <x>593.7857142857143</x>
+              <y>231.0</y>
             </point>
             <point>
-              <x>560.0</x>
-              <y>165.0</y>
+              <x>526.0</x>
+              <y>185.0</y>
             </point>
             <point>
-              <x>595.0</x>
-              <y>149.0</y>
+              <x>525.0</x>
+              <y>143.0</y>
             </point>
             <point>
-              <x>694.0</x>
-              <y>150.0</y>
+              <x>619.0</x>
+              <y>50.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -790,12 +832,12 @@
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>160.0</x>
-        <y>155.0</y>
+        <x>195.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>15</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="0d46ef4c-e8f4-4454-ba5e-6fcefa2938ad">
+      <iconSpec id="06daecda-4baa-4085-803b-06d3bd9af06c">
         <baseIcon>return_failure.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -895,8 +937,8 @@
       <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.5711771b-3941-4b95-8caa-764fa8ab1908.description</annotation>
       <name>Enable</name>
       <bounds>
-        <x>293.0</x>
-        <y>225.0</y>
+        <x>400.0</x>
+        <y>325.0</y>
       </bounds>
       <layer>0</layer>
       <hideInbound>false</hideInbound>
@@ -926,12 +968,12 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="15803f01-e406-4c54-9622-d78618a34768">
+        <userInputBinding id="361ddcae-467b-4c51-9b9c-aaeacd12bd56">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>true</required>
@@ -939,29 +981,16 @@
           <inputSymbol>host</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <record>false</record>
-          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.15803f01-e406-4c54-9622-d78618a34768.prompt</prompt>
+          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.361ddcae-467b-4c51-9b9c-aaeacd12bd56.prompt</prompt>
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="a8af837e-127d-4f61-85d3-2ca1dc1bd1f8">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>comandos</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="da158580-ffab-4f3d-bd13-ccbbcb13d2b9">
+        <staticBinding id="05f37e20-1a0e-4c7a-bcd0-0b3ce5d751cc">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -983,18 +1012,17 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>command</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>expect (.*\s*)*[#&gt;]
+          <value>expect (.*)
 send enable
-expectEndsWith assword:
 send ${enablepass}</value>
           <record>false</record>
         </staticBinding>
-        <userInputBinding id="3b44200a-a686-46b6-a36b-aea792a14c5c">
+        <userInputBinding id="b670cb4f-c7b4-4b90-9508-01347d9c2d58">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>true</required>
@@ -1002,16 +1030,16 @@ send ${enablepass}</value>
           <inputSymbol>username</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <record>false</record>
-          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.3b44200a-a686-46b6-a36b-aea792a14c5c.prompt</prompt>
+          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.b670cb4f-c7b4-4b90-9508-01347d9c2d58.prompt</prompt>
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <userInputBinding id="da0c3093-430f-4e30-82db-12d01d292160">
+        <userInputBinding id="0f3f0356-b151-4553-8fca-736ed6d13572">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>ENCRYPTED</inputType>
           <isList>false</isList>
           <required>true</required>
@@ -1019,16 +1047,16 @@ send ${enablepass}</value>
           <inputSymbol>password</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <record>false</record>
-          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.da0c3093-430f-4e30-82db-12d01d292160.prompt</prompt>
+          <prompt>2058bb31-8434-4d0c-ad15-6cb65335adc4.0f3f0356-b151-4553-8fca-736ed6d13572.prompt</prompt>
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="c3e3230f-24c8-492b-9c73-20299288667d">
+        <staticBinding id="504dbcdd-0497-4faf-bd58-173d072bb8a4">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -1050,12 +1078,12 @@ send ${enablepass}</value>
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>2000</value>
+          <value>15000</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="62b8a7ed-3ec8-4d24-b882-7982351d2e97">
+        <staticBinding id="c53da419-d027-4b65-9b7f-ba8a62cb4632">
           <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
+          <assignFromContext>false</assignFromContext>
           <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -1063,26 +1091,26 @@ send ${enablepass}</value>
           <isPersisted>true</isPersisted>
           <inputSymbol>newlineCharacters</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>\r</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="c55bfff4-b644-4c57-baf9-32d58046f92f">
+        <staticBinding id="c93c987d-a572-4ed4-8dae-456eec8b3dbd">
           <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>characterDelay</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>30</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="adfb760a-6fe8-4738-8768-1b16018cd3f4">
+        <staticBinding id="63d8e849-ca6d-4c31-9cba-cda88e009e73">
           <annotation></annotation>
           <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -1139,20 +1167,20 @@ send ${enablepass}</value>
           </source>
           <positions>
             <point>
-              <x>343.0</x>
-              <y>259.0</y>
+              <x>402.0</x>
+              <y>350.06557377049177</y>
             </point>
             <point>
-              <x>399.8642178293711</x>
-              <y>227.5125305771672</y>
+              <x>387.0</x>
+              <y>293.0</y>
             </point>
             <point>
-              <x>478.31748171032405</x>
-              <y>128.54860947243574</y>
+              <x>295.0</x>
+              <y>232.0</y>
             </point>
             <point>
-              <x>496.0</x>
-              <y>66.0</y>
+              <x>204.0</x>
+              <y>215.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -1165,46 +1193,31 @@ send ${enablepass}</value>
       <opRef>
         <refId>26c8a67b-a70b-42e9-b65c-9cd13f94f8f9</refId>
       </opRef>
-      <assignments>
-        <flowVariableAssignment id="923bae0d-6e70-4536-a7da-85c929b43695">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>OVERWRITE</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>comandosSSH</contextKey>
-          <expression id="769388b1-362d-4aa4-9651-b8b9b5df2555">
-            <annotation></annotation>
-            <name>Input: comandos</name>
-            <fieldName>comandos</fieldName>
-            <sourceType>INPUT</sourceType>
-            <filters>
-              <scriptletFilter id="d5fbf804-7275-48c5-a9ba-fbe33b7cfae4">
-                <annotation></annotation>
-                <name>Scriptlet</name>
-                <scriptlet id="5e59dc8e-4578-450e-a660-9a2932c4faa2">
-                  <annotation></annotation>
-                  <name>default</name>
-                  <script>if (scriptletInput !== null) {
-		scriptletResult = comandos.replace( /^/gm , &apos;send &apos;);
-}</script>
-                  <type>RHINO</type>
-                </scriptlet>
-              </scriptletFilter>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
+      <assignments/>
       <throttleSize>0</throttleSize>
     </step>
     <step id="49b83577-2f10-4ce4-ae7c-560586df9dc2">
       <annotation></annotation>
       <name>SSH Shell Logoff</name>
       <bounds>
-        <x>293.0</x>
-        <y>32.0</y>
+        <x>404.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>3</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="8cef647d-e151-48ed-8640-b8850f1544aa">
+        <baseIcon>workstation_network.png</baseIcon>
+        <basePath>/Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="aa80e8e3-b52e-4e0c-babe-1414a0400e3d">
+            <baseIcon>delete2.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -1260,8 +1273,8 @@ send ${enablepass}</value>
             </point>
           </positions>
           <labelPosition>
-            <x>485.99207830259047</x>
-            <y>-19.220086949328504</y>
+            <x>657.7285951197942</x>
+            <y>5.2899276771003345</y>
           </labelPosition>
         </transition>
         <transition id="f2231435-dea0-428f-9214-a4efe5416dec">
@@ -1280,20 +1293,20 @@ send ${enablepass}</value>
           </source>
           <positions>
             <point>
-              <x>343.0</x>
-              <y>66.0</y>
+              <x>399.5</x>
+              <y>37.17391304347826</y>
             </point>
             <point>
-              <x>288.9732702466673</x>
-              <y>29.85982191299611</y>
+              <x>392.0</x>
+              <y>13.0</y>
             </point>
             <point>
-              <x>259.70415509518966</x>
-              <y>24.0856427334529</y>
+              <x>307.0</x>
+              <y>10.0</y>
             </point>
             <point>
-              <x>196.0</x>
-              <y>37.0</y>
+              <x>245.0</x>
+              <y>50.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -1317,20 +1330,20 @@ send ${enablepass}</value>
           </source>
           <positions>
             <point>
-              <x>343.0</x>
-              <y>66.0</y>
+              <x>446.5</x>
+              <y>37.17391304347826</y>
             </point>
             <point>
-              <x>288.8873318161214</x>
-              <y>102.0113751753727</y>
+              <x>370.0</x>
+              <y>67.0</y>
             </point>
             <point>
-              <x>252.673210265836</x>
-              <y>109.06607417867505</y>
+              <x>337.0</x>
+              <y>69.0</y>
             </point>
             <point>
-              <x>189.0</x>
-              <y>96.0</y>
+              <x>245.0</x>
+              <y>50.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -1350,8 +1363,8 @@ send ${enablepass}</value>
       <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.715f5585-8b3e-43e0-9554-cd002d50a08e.description</annotation>
       <name>Configura equipo</name>
       <bounds>
-        <x>446.0</x>
-        <y>32.0</y>
+        <x>154.0</x>
+        <y>165.0</y>
       </bounds>
       <layer>0</layer>
       <hideInbound>false</hideInbound>
@@ -1489,25 +1502,25 @@ send ${enablepass}</value>
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>5000</value>
+          <value>30000</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="86dc5efa-7327-49e8-b6ba-678457793daf">
+        <staticBinding id="c1c817d3-75ee-4d21-ac6d-e2c176c38622">
           <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>true</assignToContext>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>newlineCharacters</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>\r\n</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="2836374e-a72b-43c3-a28e-7367539061b4">
+        <staticBinding id="4f6163dc-1e32-4c6f-8d7c-4feb192e9d93">
           <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
+          <assignFromContext>false</assignFromContext>
           <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -1515,7 +1528,7 @@ send ${enablepass}</value>
           <isPersisted>true</isPersisted>
           <inputSymbol>characterDelay</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>20</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="5b9e8c56-0805-4bd3-ac3a-5f8bbcf179a2">
@@ -1612,6 +1625,290 @@ send ${enablepass}</value>
           </expression>
         </flowVariableAssignment>
       </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0">
+      <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0.description</annotation>
+      <name>Ejecutar Enable?</name>
+      <bounds>
+        <x>154.0</x>
+        <y>325.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="f700addf-4c4b-4049-a38f-183f99d840d7">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="669df9ea-2a85-4b45-9615-6da745b8ab30">
+          <annotation></annotation>
+          <fromContextKey>tiene_enable</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>string1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1779a57e-2ebe-48e3-81de-0562aaae00de">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>string2</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ba4492f6-a66d-481b-afe4-56ddfb0b8c07">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="6c170651-aa1a-486d-86ec-fd07d2c45051">
+          <annotation></annotation>
+          <name>true</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>true</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5711771b-3941-4b95-8caa-764fa8ab1908</refId>
+          </destination>
+          <source>
+            <refId>aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>214.0</x>
+              <y>271.0</y>
+            </point>
+            <point>
+              <x>343.0</x>
+              <y>259.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2cf233d3-d4ae-4be6-beea-ebae8eaa7c19">
+          <annotation></annotation>
+          <name>false</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>false</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>715f5585-8b3e-43e0-9554-cd002d50a08e</refId>
+          </destination>
+          <source>
+            <refId>aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>214.0</x>
+              <y>271.0</y>
+            </point>
+            <point>
+              <x>496.0</x>
+              <y>66.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>7c2f47aa-a4b3-4a7d-b3d4-007f285f7d29</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="ce3fb8e1-6d18-4543-8601-db63f9dc89eb">
+      <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.ce3fb8e1-6d18-4543-8601-db63f9dc89eb.description</annotation>
+      <name>String Comparator</name>
+      <bounds>
+        <x>53.0</x>
+        <y>165.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="af8e8d41-e8e5-4a77-9ac7-ee855993619a">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="ca35b592-8a7e-44d3-ab43-365897ef1b39">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Exact match</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="02e5b83a-7c6f-41fc-bae8-38bea76124dc">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>El equipo utiliza SSH1</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9ad838d4-5361-4c55-bf40-00e0e95ae36e">
+          <annotation></annotation>
+          <fromContextKey>resultadoerror</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="307cd93e-48af-416c-8d23-5da80f760d93">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="8ab2aa96-1f9c-419c-bae5-e77ee1e47a5d">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>63127c58-99db-4d7c-bca1-5066fc0f07e0</refId>
+          </destination>
+          <source>
+            <refId>ce3fb8e1-6d18-4543-8601-db63f9dc89eb</refId>
+          </source>
+          <positions>
+            <point>
+              <x>103.0</x>
+              <y>199.0</y>
+            </point>
+            <point>
+              <x>245.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="91f6d1ce-9e92-4e1b-8823-2d677b5238f3">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>942ac53c-3fe1-4fec-9d0b-368d1edf5c9d</refId>
+          </destination>
+          <source>
+            <refId>ce3fb8e1-6d18-4543-8601-db63f9dc89eb</refId>
+          </source>
+          <positions>
+            <point>
+              <x>103.0</x>
+              <y>199.0</y>
+            </point>
+            <point>
+              <x>50.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments/>
       <throttleSize>0</throttleSize>
     </step>
   </steps>
