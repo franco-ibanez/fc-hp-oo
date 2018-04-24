@@ -235,7 +235,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="175bd813-d0c5-4113-b9ed-4e39a47eddc9">
+      <iconSpec id="68d1ee97-823c-4200-81ca-293200fbc55f">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -395,12 +395,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="a5b19443-ea08-4744-8c09-c966f37a3af3">
-        <baseIcon>return_failure.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -724,6 +718,12 @@ sys location=&quot;${domicilio}&quot;</replaceString>
                 <replaceString>conf t
 hostname ${nuevohostname}
 snmp-server location ${domicilio}
+username noc password 0 16qnang
+enable secret 0 Eepdlc16ter
+no username tb
+no username cisco
+no username sdh
+no ip domain name
 end
 wr</replaceString>
                 <replaceType>ALL</replaceType>
@@ -823,6 +823,20 @@ exit</replaceString>
                 <ignoreCase>false</ignoreCase>
                 <searchString>1.3.6.1.4.1.868.1.3.2</searchString>
                 <replaceString>false</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="0290d1d2-d5d2-4669-80be-54522e28bbd0">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>1.3.6.1.4.1.9.</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <replaceAllFilter id="44777ff1-9751-40f7-bcd3-216603e8812e">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>1.3.6.1.4.1.9.</searchString>
+                <replaceString>true</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
               <stripTrailingFilter id="a926dbe6-0a1b-4419-b482-b62dda153690">
