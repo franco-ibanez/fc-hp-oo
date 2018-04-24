@@ -398,6 +398,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="d32be7bd-cfdc-4aa7-8b35-6b3218a296f6">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -818,43 +824,6 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="6fbf5460-17fc-472a-8564-ab8879bc189b">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>bbe01bdc-4381-4a19-a443-bf4078725148</refId>
-          </destination>
-          <source>
-            <refId>7ec4ee57-c95a-48a6-9255-b7d2971e5e54</refId>
-          </source>
-          <positions>
-            <point>
-              <x>31.57142857142857</x>
-              <y>246.0</y>
-            </point>
-            <point>
-              <x>90.0</x>
-              <y>240.0</y>
-            </point>
-            <point>
-              <x>90.0</x>
-              <y>210.0</y>
-            </point>
-            <point>
-              <x>50.0</x>
-              <y>170.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="5b30ab51-f406-4d7c-9f76-e2cac3b3e0d5">
           <annotation></annotation>
           <name>success</name>
@@ -877,6 +846,39 @@
             <point>
               <x>50.0</x>
               <y>394.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="741bf8d8-f775-4ae2-8467-60b99edd72da">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bbe01bdc-4381-4a19-a443-bf4078725148</refId>
+          </destination>
+          <source>
+            <refId>7ec4ee57-c95a-48a6-9255-b7d2971e5e54</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>274.0</y>
+            </point>
+            <point>
+              <x>75.0</x>
+              <y>214.0</y>
+            </point>
+            <point>
+              <x>50.0</x>
+              <y>154.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -992,7 +994,7 @@
               <regexFilter id="5fe221fe-4457-47c7-afd9-5741fcec386a">
                 <annotation></annotation>
                 <name>Regular Expression</name>
-                <expression>[0-9]+$</expression>
+                <expression>[0-9]+([A-Z]|[0-9])$</expression>
                 <ignoreCase>false</ignoreCase>
                 <regType>JAVA</regType>
                 <entireString>true</entireString>
@@ -1260,7 +1262,7 @@ Por favor verificar y corregir.</value>
       <userPrompt></userPrompt>
       <scriptlet id="e5ff1a8e-117f-4314-aca9-f5a20ad66123">
         <annotation></annotation>
-        <name>Step Consulta Tenant in Flow ABM Monitoreo (2ce93fc8-7699-4f44-9f84-a87bb7291eb0)</name>
+        <name>Step Consulta Tenant in Flow Alta Monitoreo (2ce93fc8-7699-4f44-9f84-a87bb7291eb0)</name>
         <script></script>
         <type>NASHORN</type>
       </scriptlet>
@@ -2132,6 +2134,19 @@ Por favor verificar y corregir.</value>
           <value></value>
           <record>false</record>
         </staticBinding>
+        <staticBinding id="7b957d97-5ac7-4809-a96a-66e6101293f6">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>comunidad_snmp</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
         <staticBinding id="cdab11fd-6af0-4580-aeba-405c1072cf07">
           <annotation></annotation>
           <assignFromContext>true</assignFromContext>
@@ -2354,6 +2369,12 @@ Por favor verificar y corregir.</value>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="cf3ca491-e64d-4aec-899b-89cf0c2d04ba">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>

@@ -56,6 +56,19 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="af514589-f02a-40f7-90c3-e96f233d118e">
+        <baseIcon>workstation_network.png</baseIcon>
+        <basePath>/Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
+            <baseIcon>remote.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -291,6 +304,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="0b82e0df-2915-4b91-b3eb-5a01e4beb6b5">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -335,6 +354,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="10ee1ba3-a619-4cb8-a102-fb2f9c28532d">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -379,6 +404,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="42b93578-9da4-478d-8c8d-a1cc261fd550">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -402,7 +433,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>matchType</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>Contains</value>
+          <value>Exact Match</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="516b5402-d623-4f34-aace-9b954170f8d0">
@@ -523,6 +554,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="afdca044-dfef-4e02-be50-f3f936283435">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -640,6 +677,19 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="19ea6f32-4942-48fa-8077-1bcc5a04d36d">
+        <baseIcon>workstation_network.png</baseIcon>
+        <basePath>/Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
+            <baseIcon>remote.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -861,6 +911,19 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="cd61aa5f-30cc-48c3-ab93-b3686ba5e330">
+        <baseIcon>workstation_network.png</baseIcon>
+        <basePath>/Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
+            <baseIcon>remote.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>

@@ -56,6 +56,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="5c829c1c-a567-4b25-ac84-d7ae2b24cc6f">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -189,6 +195,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="ce2c336f-17e4-4b86-b521-67a57ef3ed1c">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -233,6 +245,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="cd55c9db-abf5-4d9e-9ccc-9749afb3371f">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -277,6 +295,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="1efe8af0-7295-4e2e-a8a2-61f6dd86c63c">
+        <baseIcon>earth.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -747,6 +771,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="d8bd32b3-daf2-424b-b4fe-8f26218b6105">
+        <baseIcon>earth.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -769,7 +799,20 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>url</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=0x200000&amp;ipaddress=${ip_address}&amp;commstring=%23v2%2F${comunidad_snmp}&amp;parentmh=${contenedor_model_handle}</value>
+          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=${landscape}&amp;ipaddress=${ip_address}&amp;commstring=%23v2%2F${comunidad_snmp}&amp;parentmh=${contenedor_model_handle}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="34c95d28-a41b-4f5a-bc18-f737898a01c3">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>landscape</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>0x400000</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="cd6d4a17-9c31-4f56-b352-b135b426a7d3">
@@ -1217,6 +1260,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="b8c0d3f8-6cc0-46e3-8315-1e9afb813321">
+        <baseIcon>earth.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -1638,6 +1687,72 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
         <refId>f389fb81-422b-4a18-b6b9-70264bfda2cf</refId>
       </opRef>
       <assignments>
+        <flowVariableAssignment id="e58f0838-aeab-4ff5-9f8d-b2ab08bde4b2">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>landscape</contextKey>
+          <expression id="c0ba1c79-6bd6-4ae9-aa1c-2dd5fbeeae0e">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="79fb0365-d84d-4090-a81b-ac9eae5c8a43">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>/*[name()=&apos;model-response-list&apos;]/*[name()=&apos;model-responses&apos;]/*[name()=&apos;model&apos;]/*[name()=&apos;attribute&apos;]/text()</xpathQuery>
+              </xpathFilter>
+              <selectRangeFilter id="28561c47-8591-4997-91be-6f78b3bfeb97">
+                <annotation></annotation>
+                <name>Select Range</name>
+                <start>0</start>
+                <length>3</length>
+              </selectRangeFilter>
+              <replaceAllFilter id="fdbf7f38-245c-4d4a-aee2-daca76ee40de">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>0x1</searchString>
+                <replaceString>0x100000</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="61135bb3-0680-4185-a01e-4f5b4a92b678">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>0x2</searchString>
+                <replaceString>0x200000</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="e647c174-10a1-44ee-a3fe-6538bce2e7e5">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>0x3</searchString>
+                <replaceString>0x300000</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="0f10677c-2e06-4df4-8fe0-1c4bf4c0032e">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>0x4</searchString>
+                <replaceString>0x400000</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="d192746f-088d-44e1-b910-07e4b994950a">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>0x5</searchString>
+                <replaceString>0x500000</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
         <flowVariableAssignment id="75d0e528-ac18-4a32-9de9-a025cd2ee11a">
           <annotation></annotation>
           <name>assignment</name>
@@ -1663,13 +1778,19 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
     </step>
     <step id="e7b9f5cc-5ff1-4a88-b6b6-4e586ba9f091">
       <annotation>61f9b7c6-dc88-4653-b4ec-d3e8eec4ebb8.e7b9f5cc-5ff1-4a88-b6b6-4e586ba9f091.description</annotation>
-      <name>Check Null</name>
+      <name>Existe contendor?</name>
       <bounds>
         <x>295.0</x>
         <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="46085c76-5862-4f50-8caf-20e026ee4ed3">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -1786,6 +1907,12 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="4733d2ae-0458-4d41-a872-423c2b1e3268">
+        <baseIcon>earth.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -1808,7 +1935,7 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
           <isPersisted>true</isPersisted>
           <inputSymbol>url</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=0x200000&amp;mtypeid=0x1002e&amp;parentmh=0x265240&amp;attr=0x1006e&amp;val=${id_suscriber}-${razon_social}</value>
+          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=0x400000&amp;mtypeid=0x1002e&amp;parentmh=0x410724&amp;attr=0x1006e&amp;val=${id_suscriber}-${razon_social}</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="c093fe10-2378-4bf1-ac39-f66026b0f952">

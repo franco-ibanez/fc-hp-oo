@@ -652,12 +652,6 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="dd143654-10aa-4ff2-93e5-80683784bebd">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
