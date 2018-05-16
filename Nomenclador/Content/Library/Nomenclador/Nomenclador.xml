@@ -98,7 +98,7 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
           <isPersisted>true</isPersisted>
           <inputSymbol>source</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>C:\Users\fibanez\Documents\Monitoreo\HP\OO\ABREVIATURAS.txt</value>
+          <value>C:\tmp\ABREVIATURAS.txt</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="e6ad3c3f-4e02-43a1-88dc-2f113c2304d6">
@@ -484,12 +484,6 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="44932cff-e895-41cd-8d8c-8f659aa2d982">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>

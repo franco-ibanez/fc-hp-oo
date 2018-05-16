@@ -6,6 +6,7 @@
 2058bb31-8434-4d0c-ad15-6cb65335adc4.5711771b-3941-4b95-8caa-764fa8ab1908.description=<pre>Runs multiple SSH command by creating an ssh shell and checking output against regular expressions\n\nInputs\:\nhost - hostname or ip address\nport - the port number for running the command. It overwrites the port given inside the host input -in a syntax like host\:port-, if this exists.\ncommand - the commands to execute. This should be made up of 'send <command>' and 'expect <regular expression>' statements separated be newlines.\nusername - username to connect as\npassword - password\nprivateKeyFile - private key to be used during ssh authentication.\ntimeout - (optional, default 90 seconds) time in milliseconds to wait for the command to complete\nnewlineCharacters - The character sequence to send as the enter key being pressed after each 'send' statement in a send expect script is processed. Either '\\r\\n' '\\n' '\\r' or a comma delimited list of ASCII escape sequences.\ncharacterDelay - the delay in milliseconds between sending characters of the SSH commands. \n\nResponses\:\nsuccess - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nvisualized - the output of the command in XML format\nSTDOUT - the STDOUT of the command\n</pre>
 2058bb31-8434-4d0c-ad15-6cb65335adc4.68f98a35-21ad-4997-acf4-c75e6bb04cd6.transition.description=Created a SSH Shell session
 2058bb31-8434-4d0c-ad15-6cb65335adc4.715f5585-8b3e-43e0-9554-cd002d50a08e.description=<pre>Runs multiple SSH command by creating an ssh shell and checking output against regular expressions\n\nInputs\:\nhost - hostname or ip address\nport - the port number for running the command. It overwrites the port given inside the host input -in a syntax like host\:port-, if this exists.\ncommand - the commands to execute. This should be made up of 'send <command>' and 'expect <regular expression>' statements separated be newlines.\nusername - username to connect as\npassword - password\nprivateKeyFile - private key to be used during ssh authentication.\ntimeout - (optional, default 90 seconds) time in milliseconds to wait for the command to complete\nnewlineCharacters - The character sequence to send as the enter key being pressed after each 'send' statement in a send expect script is processed. Either '\\r\\n' '\\n' '\\r' or a comma delimited list of ASCII escape sequences.\ncharacterDelay - the delay in milliseconds between sending characters of the SSH commands. \n\nResponses\:\nsuccess - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nvisualized - the output of the command in XML format\nSTDOUT - the STDOUT of the command\n</pre>
+2058bb31-8434-4d0c-ad15-6cb65335adc4.83b9ec07-1c98-4e9a-bb7e-1cf5546f4233.description=This operation runs Perl scripts from a file.\n\nInputs\:\n    scriptFile - The path to the script file.\n    args - The arguments to be passed to the script.\n    timeout - The time to wait for the command to complete (in milliseconds).\nDefault value\: 90000 (90 seconds).\n\nReturns\:\n    returnResult - The return code of the operation\: -1 for failure, 0 for success.\n    Output String - The output of the Perl script.\n    TimedOut - Returns if the operation was timed out.\nValid values\: true, false\n    Error String - The error returned by the operation.\n\nResponses\:\n    success - The operation run successfully or the operation run without errors and a timeout occured.\n    failure - The operation completed unsuccessfully. For example\: if the script file was not found, invalid script.\n\nNotes\:\n    1. As a prerequisite, Perl must be installed on the machine (Studio/Central/RAS).\n    2. The operation returns the output of a "perl -W <scriptFile> <args>".\n\n
 2058bb31-8434-4d0c-ad15-6cb65335adc4.942ac53c-3fe1-4fec-9d0b-368d1edf5c9d.description=<pre>This operation iterates through a list of values. It is not recommended to modify the value of the "list" and "separator" inputs during the iteration process.\n\nInputs\:\n    list - The list to iterate through.\n    separator - A delimiter separating the list elements.\nDefault value\: \u2018,\u2019 (comma) \n\nResults\:\n    resultString - The current list element (if the response is "has more").\n\nResponses\:\n    has more - Another value was found in the list and it has been returned.\n    no more - The iterator has gone through the entire list. This response is returned once per list iteration.  A subsequent call to the List iterator operation restarts the list iteration process.\n    failure - The operation completed unsuccessfully.\n\nNote\:\n   The position of the iterator in the list is tracked by each step's unique identifier. Therefore, you can simultaneously iterate through the same list from multiple steps.\n</pre>
 2058bb31-8434-4d0c-ad15-6cb65335adc4.aefd834f-bbde-4c2b-a8e1-638a4a7ad3f0.description=<pre>\nCompares two strings, returning a true response if and only if they contain the same sequence of characters. A null string is considered to be equal to an empty string.\n\nInputs\:\n    string1 - The first string. \nDefault value\: "" (empty)\n    string2 - The second string.\nDefault value\: "" (empty)\n    ignoreCase - If set to 'true', then the comparison ignores case considerations. The two strings are considered equal ignoring case if they are of the same length and corresponding characters in the two strings are equal ignoring case. If set to any value other than 'true', then the strings must match exactly to be considered equal.\n\nResponses\:\n    true - If the two strings are equal.\n    false - If the two strings are not equal.\n\n</pre>
 2058bb31-8434-4d0c-ad15-6cb65335adc4.b670cb4f-c7b4-4b90-9508-01347d9c2d58.prompt=UserName\:
@@ -289,12 +290,6 @@
       </bounds>
       <layer>12</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="05f14036-8236-485f-af32-25638a9d5c9b">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -837,7 +832,7 @@
       </bounds>
       <layer>15</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="06daecda-4baa-4085-803b-06d3bd9af06c">
+      <iconSpec id="6a58c598-e54a-44fd-8841-800c79127f6e">
         <baseIcon>return_failure.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -1845,35 +1840,6 @@ send ${enablepass}</value>
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="8ab2aa96-1f9c-419c-bae5-e77ee1e47a5d">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>63127c58-99db-4d7c-bca1-5066fc0f07e0</refId>
-          </destination>
-          <source>
-            <refId>ce3fb8e1-6d18-4543-8601-db63f9dc89eb</refId>
-          </source>
-          <positions>
-            <point>
-              <x>103.0</x>
-              <y>199.0</y>
-            </point>
-            <point>
-              <x>245.0</x>
-              <y>34.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="91f6d1ce-9e92-4e1b-8823-2d677b5238f3">
           <annotation></annotation>
           <name>failure</name>
@@ -1903,10 +1869,222 @@ send ${enablepass}</value>
             <y>0.0</y>
           </labelPosition>
         </transition>
+        <transition id="9779e52d-3c82-4039-b2fb-cfa590f6fe29">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>83b9ec07-1c98-4e9a-bb7e-1cf5546f4233</refId>
+          </destination>
+          <source>
+            <refId>ce3fb8e1-6d18-4543-8601-db63f9dc89eb</refId>
+          </source>
+          <positions>
+            <point>
+              <x>103.0</x>
+              <y>199.0</y>
+            </point>
+            <point>
+              <x>747.0</x>
+              <y>161.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
       </transitions>
       <properties/>
       <opRef>
         <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="83b9ec07-1c98-4e9a-bb7e-1cf5546f4233">
+      <annotation>2058bb31-8434-4d0c-ad15-6cb65335adc4.83b9ec07-1c98-4e9a-bb7e-1cf5546f4233.description</annotation>
+      <name>SSHv1</name>
+      <bounds>
+        <x>86.0</x>
+        <y>72.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="bedcbb8b-2e93-4d50-a98a-f0c1f449086b">
+        <baseIcon>perl.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="12fea10d-5b1f-45e1-998f-edb26529f55f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>scriptFile</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>C:\tmp\normalizador ssh1.pl</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6a4c6517-7e89-4d8f-a9ca-6c92c4b5e0fc">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>args</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${host} ${username} ${password} ${enablepass} &quot;${comandos}&quot;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2730e7ea-bd48-4a53-bcd6-9fb6fc840827">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>120000</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3c883341-16ce-49c2-9cd1-0fe04d8bde12">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Args</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${args}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="397bc89e-150c-4409-99f1-bf6490f66275">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Timeout</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${timeout}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c84adedc-5f4b-44c6-9fb8-bfdbceb96762">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Script_File</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${scriptFile}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="ad6aa55d-c4d3-4cde-9a5a-3d3c1115ee2d">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>63127c58-99db-4d7c-bca1-5066fc0f07e0</refId>
+          </destination>
+          <source>
+            <refId>83b9ec07-1c98-4e9a-bb7e-1cf5546f4233</refId>
+          </source>
+          <positions>
+            <point>
+              <x>747.0</x>
+              <y>161.0</y>
+            </point>
+            <point>
+              <x>245.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="8b701518-7aa6-4856-af4b-7d682236f5fe">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>dc4d1860-3a92-4660-8ded-48ac4ac621b6</refId>
+          </destination>
+          <source>
+            <refId>83b9ec07-1c98-4e9a-bb7e-1cf5546f4233</refId>
+          </source>
+          <positions>
+            <point>
+              <x>747.0</x>
+              <y>161.0</y>
+            </point>
+            <point>
+              <x>564.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>55ef5e9b-460d-4a99-a544-520f11273ca2</refId>
       </opRef>
       <assignments/>
       <throttleSize>0</throttleSize>
