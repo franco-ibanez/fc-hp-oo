@@ -441,12 +441,6 @@
       </bounds>
       <layer>6</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="12d8f561-febf-4ec8-88df-68b0b45dc1c2">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -602,6 +596,7 @@
           <listDelimiter>,</listDelimiter>
           <value>noc,16qnang
 sdh,ok10
+backups_noc,ZildjianKZ
 ION,private
 admin,admin</value>
           <record>false</record>

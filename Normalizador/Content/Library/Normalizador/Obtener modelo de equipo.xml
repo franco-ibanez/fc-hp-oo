@@ -235,7 +235,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="68d1ee97-823c-4200-81ca-293200fbc55f">
+      <iconSpec id="d97c54a8-dd4a-4c4d-ba04-598e8bb23943">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -395,6 +395,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="11d2ea23-819c-46ed-a261-afc0d83bd083">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -718,12 +724,12 @@ sys location=&quot;${domicilio}&quot;</replaceString>
                 <replaceString>conf t
 hostname ${nuevohostname}
 snmp-server location ${domicilio}
+no ip domain name
 username noc password 0 16qnang
 enable secret 0 Eepdlc16ter
 no username tb
 no username cisco
 no username sdh
-no ip domain name
 end
 wr</replaceString>
                 <replaceType>ALL</replaceType>
