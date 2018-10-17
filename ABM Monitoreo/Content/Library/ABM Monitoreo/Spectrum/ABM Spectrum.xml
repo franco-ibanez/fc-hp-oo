@@ -195,12 +195,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="ce2c336f-17e4-4b86-b521-67a57ef3ed1c">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -245,12 +239,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="cd55c9db-abf5-4d9e-9ccc-9749afb3371f">
-        <baseIcon>return_failure.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -790,18 +778,6 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <staticBinding id="20b38c5c-eed5-438d-9959-6ebb39e4cad8">
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>url</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=${landscape}&amp;ipaddress=${ip_address}&amp;commstring=%23v2%2F${comunidad_snmp}&amp;parentmh=${contenedor_model_handle}</value>
-          <record>false</record>
-        </staticBinding>
         <staticBinding id="34c95d28-a41b-4f5a-bc18-f737898a01c3">
           <annotation></annotation>
           <assignFromContext>true</assignFromContext>
@@ -812,7 +788,19 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>landscape</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>0x400000</value>
+          <value>0x200000</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="20b38c5c-eed5-438d-9959-6ebb39e4cad8">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=${landscape}&amp;ipaddress=${ip_address}&amp;commstring=%23v2%2F${comunidad_snmp}&amp;parentmh=${contenedor_model_handle}</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="cd6d4a17-9c31-4f56-b352-b135b426a7d3">
@@ -1935,7 +1923,7 @@ xsi:schemaLocation=&quot;http://www.ca.com/spectrum/restful/schema/request ../..
           <isPersisted>true</isPersisted>
           <inputSymbol>url</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=0x400000&amp;mtypeid=0x1002e&amp;parentmh=0x410724&amp;attr=0x1006e&amp;val=${id_suscriber}-${razon_social}</value>
+          <value>http://${spectrum_server}/spectrum/restful/model?landscapeid=0x200000&amp;mtypeid=0x1002e&amp;parentmh=0x265240&amp;attr=0x1006e&amp;val=${id_suscriber}-${razon_social}</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="c093fe10-2378-4bf1-ac39-f66026b0f952">
