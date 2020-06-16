@@ -90,7 +90,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>list</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>Hippie2K@1048576|Hippie2K</value>
+          <value>Hippie2K@1048576|Hippie2K|SSAA_Telecom</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="bdc8fcd0-7362-41d0-820e-347741973e9a">
@@ -235,7 +235,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="d97c54a8-dd4a-4c4d-ba04-598e8bb23943">
+      <iconSpec id="a4c85372-968e-443a-a191-981d1fd27146">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -395,12 +395,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="11d2ea23-819c-46ed-a261-afc0d83bd083">
-        <baseIcon>return_failure.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -438,7 +432,7 @@
     </returnStep>
     <step id="64f443ba-2894-4c6b-ab02-89c50c33d7db">
       <annotation>1b391fc6-5ad7-4dbf-902b-94132e985fa0.64f443ba-2894-4c6b-ab02-89c50c33d7db.description</annotation>
-      <name>SNMPv1 Get</name>
+      <name>Consulto sysObjId</name>
       <bounds>
         <x>0.0</x>
         <y>204.0</y>
@@ -727,6 +721,9 @@ snmp-server location ${domicilio}
 no ip domain name
 username noc password 0 16qnang
 enable secret 0 Eepdlc16ter
+no username user
+no username networking
+no username backbone
 no username tb
 no username cisco
 no username sdh
@@ -748,9 +745,7 @@ wr</replaceString>
                 <replaceString>configure
 set system host-name ${nuevohostname}
 set snmp location &quot;${domicilio}&quot;
-commit
-expect (.*\s*)*[#&gt;]
-exit</replaceString>
+commit</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
             </filters>

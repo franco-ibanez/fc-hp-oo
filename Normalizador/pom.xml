@@ -13,8 +13,8 @@
     </dependency>
     <dependency>
       <groupId>DEFAULT</groupId>
-      <artifactId>Nomenclador</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <artifactId>Librerias</artifactId>
+      <version>1.0.28-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
