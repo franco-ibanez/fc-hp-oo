@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="f9ce42e4-c188-426b-882a-b748592b1b7a">
+  <descriptionCdata><![CDATA[f9ce42e4-c188-426b-882a-b748592b1b7a.61b66629-924d-4af4-b4ab-e87e5d620e78.prompt=Type of Match to Perform\:
+f9ce42e4-c188-426b-882a-b748592b1b7a.7a14fdb3-1cac-4f89-a83c-a620ab808e69.prompt=Match To\:
+f9ce42e4-c188-426b-882a-b748592b1b7a.8342ca45-f797-4a9e-9e95-99a9ac4fc359.prompt=To Match\:
+f9ce42e4-c188-426b-882a-b748592b1b7a.d9fdad07-d306-4148-b43b-c835475452de.prompt=Ignore Case\:
+f9ce42e4-c188-426b-882a-b748592b1b7a.description=<pre>This operation checks whether a string matches another string, using a specific matching rule. The "toMatch" input is the string that is checked for matching the "matchTo" expression. \n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex (The values are not case sensitive)\nDefault value\: Exact Match\n    toMatch - The string that is checked for matching.\n    matchTo - The string to match against.\nExample\: If "matchType" is \u201CRegEx\u201D, the "matchTo" input is a regular expression such as\: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Specifies whether to ignore case when matching or not.\nValid values\: False, True\nDefault value\: False\n\nResults\:\n    returnResult - This is the primary output. It contains the string "Matches" if the "toMatch" string matches the "matchTo" string. Otherwise, it contains the string "Does Not Match".  \n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n</pre>
+]]></descriptionCdata>
+  <annotation>f9ce42e4-c188-426b-882a-b748592b1b7a.description</annotation>
+  <name>String Comparator</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="61b66629-924d-4af4-b4ab-e87e5d620e78">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>matchType</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>f9ce42e4-c188-426b-882a-b748592b1b7a.61b66629-924d-4af4-b4ab-e87e5d620e78.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <link>
+        <refId>b15a59ad-9459-43d0-83c1-faf13141cd3c</refId>
+        <refName>String Comparater Match Type</refName>
+      </link>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="8342ca45-f797-4a9e-9e95-99a9ac4fc359">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>toMatch</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>f9ce42e4-c188-426b-882a-b748592b1b7a.8342ca45-f797-4a9e-9e95-99a9ac4fc359.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="7a14fdb3-1cac-4f89-a83c-a620ab808e69">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>matchTo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>f9ce42e4-c188-426b-882a-b748592b1b7a.7a14fdb3-1cac-4f89-a83c-a620ab808e69.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="d9fdad07-d306-4148-b43b-c835475452de">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>ignoreCase</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>f9ce42e4-c188-426b-882a-b748592b1b7a.d9fdad07-d306-4148-b43b-c835475452de.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <link>
+        <refId>96a1ed25-cdc9-4ff6-8fba-e9c044c5ca53</refId>
+        <refName>Boolean - False Default</refName>
+      </link>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="57988ad9-2e27-405f-b51a-1f3d7afc71b3">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="064a595c-31ee-4eef-bfa4-66b57aff9a2b">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="e9ef4f42-2cdf-464f-82f5-a4a6ba16e6d6">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>success</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="c271a669-922d-4464-9135-7fabdeeaefb0">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="e28e46bf-1b40-4f74-a669-b51df1202c3a">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="e4bc49e0-c668-47b3-989f-07a856843e6a">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>failure</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="710ea36d-1a15-48c3-b286-ccec9d4e61b9">
+    <annotation></annotation>
+    <name>response</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="8e4c96e7-75d6-45d2-b98c-214ced9a03f2">
+    <baseIcon>compare.png</baseIcon>
+    <basePath>Utilities</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>
