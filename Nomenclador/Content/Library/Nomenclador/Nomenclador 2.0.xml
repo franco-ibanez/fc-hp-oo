@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="b58b63f0-779f-42b6-8666-a4c6f644c17a">
+  <descriptionCdata><![CDATA[b58b63f0-779f-42b6-8666-a4c6f644c17a.3651763a-2fc3-455d-a9b7-02c7b0bad300.description=<pre> \nThis operation reads the content of a file. The operation can be used to read the entire file content in one step or to iterate the file line by line.\n\nInputs\:\n    source - The full path and filename of the file to be read. A UNC path can be supported as the source file path.\n    filter -  Regular expression filter to be applied to each line (leave blank for no filter). If this filter is not blank, all rows that contain the filter string will be returned. If no match is found, no lines will be returned.\n    store - Whether to store results in the session for retrieval. If "store" is set to true, then all matching lines are pushed into the Session and then subsequent calls to the operation results in the next line being returned.  If set to "false", the file will be iterated and in any iteration the number of remaining lines that matched the "filter" will be returned.\nValid values \: true, false\n    delimiter - If specified, the entire content of the file  will be read, the specified value will be used as a delimiter between the rows and  the resulting content will be returned. If left blank, the next row will be returned for each subsequent call. \n    user - Username to use for thread impersonation on the RAS host when reading.\n    password - Password for the user.\n    eofReset -  If set to true, after the No More response has been returned once, the operation will restart reading the file from the beginning on the next call.\nValid values\: true, false\n    characterSet - The character set of the file to read from. For invalid or empty input value the default encoding will be used. \nValid values\: UTF-8, UTF-16 and UTF-32 \nDefault value\: UTF-8\n\nResponses\:\n    more lines - More lines are available to be read in the session.\n    no more lines - No lines are available for reading in the session.\n    failure - If something went wrong. \n\nResults\:\n    returnCode - This is the primary output. It is 0 if the operation completed successfully  (or if more rows are available when iterate is set to true), 1 if no more items (if iterate is set to true) and -1 in case of failure. \n    COUNT- The number of lines that matched the filter, or if no filter specified, the total lines read (if iterate is false, or delimiter is not null). Otherwise, it returns the number of lines remaining in the session. This result is only returned in line-by-line mode.\n    returnResult - Each row by turn (if iterate is true and delimiter is blank) or all rows separated by the delimiter (if iterate is true and delimiter is not blank).\n    exception - An exception message if the operation fails.\n\nNote\:\n1. If you are using UTF-8 special characters(for example japanese characters), please ensure that your file is encoded in UTF-8 and not in ANSI wich is the default file encoding in windows when you are creating a new file.\n2. The "filter" and "eofReset" fields are taken into consideration only if iterate is set to true. Otherwise, they have no impact on the result.\n3. If i"store" is set to "true" and "delimiter" is not null, the entire file may or may not still be fully read at once, depending on size. \n4. If "store" is set to "true", then all matching lines are pushed into the Session and then, subsequent calls to the operation, result in the next line being returned.\n\nExamples\:\n    The following examples are used to illustrate the behavior of the operation for three specific use cases. For these examples, the operation will use as the input source a file called "example.txt", with the absolute path "C\:\\Program Files\\example.txt" and the following content\:\n        "line1\n         line2\n         line3\n         line4"\n1. This is a valid inputs example for reading the content of a file, when the "store" input field is set to "true" and the "delimiter" input field is not left blank\:\n        source\: C\:\\Program Files\\example.txt\n        filter\:\n        store\: true\n        delimiter\: ,\n        eofReset\: false\n        characterSet\: UTF-8\n    In this case, the "returnResult" output field of the operation will have the following value\: line1,line2,line3,line4\n2. This is a valid inputs example for reading the content of a file, when the "store" input field is set to "true" and the "delimiter" input field is left blank\:\n        source\: C\:\\Program Files\\example.txt\n        filter\:\n        store\: true\n        delimiter\:\n        eofReset\: false\n        characterSet\: UTF-8\n    In this case, the file will be iterated row by row in four subsequent calls. At each call, the "returnResult" output field of the operation will contain the value of one line from the file, in the same order as they are found in the source file (i.e. line1, line2, lin3, line4). \n3. This is a valid inputs example for reading the content of a file, when the "store" input field is set to "false" and the "delimiter" input field is left blank\:       \n        source\: C\:\\Program Files\\example.txt\n        filter\:\n        iterate\: false\n        delimiter\:\n        eofReset\: false\n        characterSet\: UTF-8\n    In this case, all matching lines will be iterated and the "returnResult" field will contain, at each iteration, the number of lines remaining to be iterated (i.e\: 4, 3, 2, 1).\n\n</pre>
+b58b63f0-779f-42b6-8666-a4c6f644c17a.62539372-cd6e-48d1-995c-43986cfb1e29.description=<pre>This operation iterates through a list of values. It is not recommended to modify the value of the "list" and "separator" inputs during the iteration process.\n\nInputs\:\n    list - The list to iterate through.\n    separator - A delimiter separating the list elements.\nDefault value\: \u2018,\u2019 (comma) \n\nResults\:\n    resultString - The current list element (if the response is "has more").\n\nResponses\:\n    has more - Another value was found in the list and it has been returned.\n    no more - The iterator has gone through the entire list. This response is returned once per list iteration.  A subsequent call to the List iterator operation restarts the list iteration process.\n    failure - The operation completed unsuccessfully.\n\nNote\:\n   The position of the iterator in the list is tracked by each step's unique identifier. Therefore, you can simultaneously iterate through the same list from multiple steps.\n</pre>
+b58b63f0-779f-42b6-8666-a4c6f644c17a.790c4ff4-022b-4454-911e-d5f6b8747930.prompt=${lista_reemplazos}
+b58b63f0-779f-42b6-8666-a4c6f644c17a.d5489c6f-cb01-4884-a637-f7977db59da2.description=<pre>\nThis operation does not do anything. It can be used to filter flow variables by defining them as inputs and filtering them in the Results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. It contains the value of  "field1" as it was specified at input or when filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Nomenclador 2.0</name>
+  <categories/>
+  <inputs>
+    <resultBinding id="073f1dd3-62e1-4724-a88b-00052e797455">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>razonsocial</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+    </resultBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="cfcf9c66-80c4-424c-b1c3-63f41b4fa71d">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="a93d8405-b2d7-4f58-917e-f99756d03e7c">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="4459616d-d9d5-4d4e-abbc-e7a2233914c2">
+    <annotation></annotation>
+    <name>Salida</name>
+    <fieldName>Salida</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="786f17c1-a88f-4477-a3cd-800dc69e31df">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="3651763a-2fc3-455d-a9b7-02c7b0bad300">
+      <annotation>b58b63f0-779f-42b6-8666-a4c6f644c17a.3651763a-2fc3-455d-a9b7-02c7b0bad300.description</annotation>
+      <name>Lista reemplazos</name>
+      <bounds>
+        <x>33.0</x>
+        <y>42.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="10dcecb7-55bb-4bad-8053-6140e13a31a4">
+        <baseIcon>document_text.png</baseIcon>
+        <basePath>Operating System/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="4e9e0f0f-096c-4694-a8a7-2dd8963edbe2">
+            <baseIcon>read2.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="324b662a-99a9-49c7-a12e-6b5cfa81ea63">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>source</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>C:\tmp\ABREVIATURAS.txt</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="02d0f5c9-69d2-467e-a007-9ce368db5e08">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>filter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="996b88e4-1342-4f9d-8960-66b8909e969f">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>store</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4ed2bd7a-8380-42df-8688-d5da9233189f">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>delimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;br&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="82eedabe-18c6-460a-8c69-5eb74c44150c">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>eofReset</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f5c111f0-fe23-4149-a2a1-4947014155bb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="835f823d-07d5-4197-9c3e-bfe7e4f41d34">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>803ac15f-5591-4651-92c9-d1ffe1339970</refId>
+          </destination>
+          <source>
+            <refId>3651763a-2fc3-455d-a9b7-02c7b0bad300</refId>
+          </source>
+          <positions>
+            <point>
+              <x>98.0</x>
+              <y>90.0</y>
+            </point>
+            <point>
+              <x>83.0</x>
+              <y>292.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2cf58a3e-b341-4eb8-bb85-c38be9a0c9b0">
+          <annotation></annotation>
+          <name>more lines</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>more lines</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>62539372-cd6e-48d1-995c-43986cfb1e29</refId>
+          </destination>
+          <source>
+            <refId>3651763a-2fc3-455d-a9b7-02c7b0bad300</refId>
+          </source>
+          <positions>
+            <point>
+              <x>98.0</x>
+              <y>90.0</y>
+            </point>
+            <point>
+              <x>247.0</x>
+              <y>290.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="36b9b50e-49b4-46d4-89d5-02bb6c8d3cd9">
+          <annotation></annotation>
+          <name>no more lines</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>no more lines</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1094d37b-38ae-4a22-a541-3cf0bf249926</refId>
+          </destination>
+          <source>
+            <refId>3651763a-2fc3-455d-a9b7-02c7b0bad300</refId>
+          </source>
+          <positions>
+            <point>
+              <x>98.0</x>
+              <y>90.0</y>
+            </point>
+            <point>
+              <x>419.0</x>
+              <y>63.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f09173f6-bfb0-4d5b-8475-6c859e538bca</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="0a1798a0-c298-47a3-94c7-0cd621b023ff">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>APPEND</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>lista_reemplazos</contextKey>
+          <expression id="6b9c17ee-81f8-4928-8867-08fe9c9b8f56">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="1094d37b-38ae-4a22-a541-3cf0bf249926">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>354.0</x>
+        <y>42.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="47ddaba6-5ebd-4456-b6c3-e5a621164e3c">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="5034fd98-3fd5-4ede-bba2-10f589006b4c">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>razonsocialfinal</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d0925701-bc67-4bca-95b6-61a6b3699d0a">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>idproducto</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2f13e139-94f0-47d5-a77a-8d30197a0027">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>idsuscriber</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="5102b483-6765-486e-9a14-fc066bd1f190">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1094d37b-38ae-4a22-a541-3cf0bf249926</refId>
+          </destination>
+          <source>
+            <refId>1094d37b-38ae-4a22-a541-3cf0bf249926</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments>
+        <flowVariableAssignment id="737d219a-7b6f-475a-b76a-73f46f1102a0">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>razonsocialprocesada</contextKey>
+          <expression id="3be540a5-48bb-4194-9ece-facecc2ce12c">
+            <annotation></annotation>
+            <name>Input: razonsocialfinal</name>
+            <fieldName>razonsocialfinal</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <scriptletFilter id="f9a4b77c-d3ec-4b9f-8c85-3eaf8f13c61d">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="3d76bf92-eb8e-4561-851a-6dc854cf4b3d">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>darformato = scriptletInput;
+darformato = darformato.replace(/\./g,&apos; &apos;);
+darformato = darformato.replace(/ S A Q E I /g,&apos;&apos;);
+darformato = darformato.replace(/^S A Q E I /g,&apos;&apos;);
+darformato = darformato.replace(/ S A Q E I /g,&apos;&apos;);
+darformato = darformato.replace(/ S A Q E I$/g,&apos;&apos;);
+darformato = darformato.replace(/ S A C E I /g,&apos;&apos;);
+darformato = darformato.replace(/^S A C E I /g,&apos;&apos;);
+darformato = darformato.replace(/ S A C E I /g,&apos;&apos;);
+darformato = darformato.replace(/ S A C E I$/g,&apos;&apos;);
+darformato = darformato.replace(/ S A C I /g,&apos;&apos;);
+darformato = darformato.replace(/^S A C I /g,&apos;&apos;);
+darformato = darformato.replace(/ S A I C /g,&apos;&apos;);
+darformato = darformato.replace(/ S A I C$/g,&apos;&apos;);
+darformato = darformato.replace(/CAPITAL FEDERAL/g,&apos;CAP FED&apos;);
+darformato = darformato.replace(/BUENOS AIRES/g,&apos;BSAS&apos;);
+scriptletResult = darformato</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <scriptletFilter id="d426a8e4-e19a-4218-9e71-33a0bdef3f59">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="813a9f76-7b5c-4016-a438-2acee8b4efc5">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>darformato = scriptletInput;
+darformato = darformato.replace(/ SOCIEDAD ANONIMA /g,&apos; &apos;);
+darformato = darformato.replace(/ SOCIEDAD ANONIMA$/g,&apos; &apos;);
+darformato = darformato.replace(/^SOCIEDAD ANONIMA /g,&apos; &apos;);
+darformato = darformato.replace(/^S.R.L. /g,&apos;&apos;);
+darformato = darformato.replace(/ S.R.L.$/g,&apos;&apos;);
+darformato = darformato.replace(/^S.R.L /g,&apos;&apos;);
+darformato = darformato.replace(/ S.R.L$/g,&apos;&apos;);
+darformato = darformato.replace(/^SRL /g,&apos;&apos;);
+darformato = darformato.replace(/ SRL$/g,&apos;&apos;);
+darformato = darformato.replace(/^S.A. /g,&apos;&apos;);
+darformato = darformato.replace(/ S.A.$/g,&apos;&apos;);
+darformato = darformato.replace(/ S.A. /g,&apos; &apos;);
+darformato = darformato.replace(/^S.A /g,&apos;&apos;);
+darformato = darformato.replace(/ S.A$/g,&apos;&apos;);
+darformato = darformato.replace(/ S.A /g,&apos; &apos;);
+darformato = darformato.replace(/^SA /g,&apos;&apos;);
+darformato = darformato.replace(/ SA$/g,&apos;&apos;);
+darformato = darformato.replace(/ SA /g,&apos; &apos;);
+darformato = darformato.replace(/ SUS /g,&apos; &apos;);
+darformato = darformato.replace(/ EN /g,&apos; &apos;);
+darformato = darformato.replace(/ DE LOS /g,&apos; &apos;);
+darformato = darformato.replace(/ DE LA /g,&apos; &apos;);
+darformato = darformato.replace(/ DEL /g,&apos; &apos;);
+darformato = darformato.replace(/ DE /g,&apos; &apos;);
+darformato = darformato.replace(/ LA /g,&apos; &apos;);
+darformato = darformato.replace(/ Y /g,&apos; &apos;); 
+scriptletResult = darformato</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <scriptletFilter id="63997fa6-a937-426f-9bbf-976d19cf4b06">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="c093d281-67e4-45f0-99fb-62c35fb117d1">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>darformato = scriptletInput;
+darformato = darformato.replace(/[&#192;&#193;&#194;&#195;&#196;&#197;]/g,&quot;A&quot;);
+darformato = darformato.replace(/[&#200;&#201;&#202;&#203;]/g,&quot;E&quot;);
+darformato = darformato.replace(/[&#204;&#205;&#206;&#207;]/g,&quot;I&quot;);
+darformato = darformato.replace(/[&#210;&#211;&#212;&#214;]/g,&quot;O&quot;);
+darformato = darformato.replace(/[&#220;&#219;&#218;&#217;]/g,&quot;U&quot;);
+darformato = darformato.replace(/&#209;/g,&quot;N&quot;);
+darformato = darformato.replace(/N&#176;/g,&quot;N&quot;);
+darformato = darformato.replace(/_/g, &apos;&apos;); //Caracteres especiales
+darformato = darformato.replace(/[^\w_ ]/g, &apos; &apos;); //Caracteres especiales
+darformato = darformato.replace(/\s\s+/g,&apos; &apos;); //Multiples espacios
+scriptletResult = darformato</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <selectRangeFilter id="280bf682-cd21-48b4-b617-1edb8fb3c2f9">
+                <annotation></annotation>
+                <name>Select Range</name>
+                <start>0</start>
+                <length>37</length>
+              </selectRangeFilter>
+              <scriptletFilter id="7d4a034a-79af-4d63-9dfb-e6342ba8f642">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="00b76ae2-cd86-4a3b-a601-6e3478c5a2f3">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>darformato = scriptletInput;
+darformato = darformato.trim();
+darformato = darformato.replace(/ /g,&apos;-&apos;); //Espacio por guion
+scriptletResult = darformato</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <concat id="84d6d9c5-a43e-49f2-99df-f452bdc3a540">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>${idsuscriber};</text>
+                <position>BEGINNING</position>
+              </concat>
+              <concat id="8a8cc5e4-1428-41fc-80c4-40051d72f3ab">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>;${idproducto}|</text>
+                <position>END</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+    </returnStep>
+    <returnStep id="803ac15f-5591-4651-92c9-d1ffe1339970">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>33.0</x>
+        <y>258.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="7988bee1-1cc4-430d-a9e2-ddee1c319f1c">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>803ac15f-5591-4651-92c9-d1ffe1339970</refId>
+          </destination>
+          <source>
+            <refId>803ac15f-5591-4651-92c9-d1ffe1339970</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="62539372-cd6e-48d1-995c-43986cfb1e29">
+      <annotation>b58b63f0-779f-42b6-8666-a4c6f644c17a.62539372-cd6e-48d1-995c-43986cfb1e29.description</annotation>
+      <name>List Iterator</name>
+      <bounds>
+        <x>197.0</x>
+        <y>256.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="4b37153f-72dd-4f08-9b23-5ade07559c03">
+        <baseIcon>wrench.png</baseIcon>
+        <basePath>utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="112c77b2-f408-42cb-a11a-d3f59d97a415">
+            <baseIcon>iterate.png</baseIcon>
+            <basePath>Annotations</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <userInputBinding id="790c4ff4-022b-4454-911e-d5f6b8747930">
+          <annotation></annotation>
+          <fromContextKey>lista_reemplazos</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>list</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>b58b63f0-779f-42b6-8666-a4c6f644c17a.790c4ff4-022b-4454-911e-d5f6b8747930.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="c80351ca-2a0a-44da-9dd0-9936dc3f4c39">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>separator</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;br&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="45fd7653-e7e6-4580-b3d5-a883256fc9ac">
+          <annotation></annotation>
+          <name>has more</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>has more</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d5489c6f-cb01-4884-a637-f7977db59da2</refId>
+          </destination>
+          <source>
+            <refId>62539372-cd6e-48d1-995c-43986cfb1e29</refId>
+          </source>
+          <positions>
+            <point>
+              <x>247.0</x>
+              <y>290.0</y>
+            </point>
+            <point>
+              <x>404.0</x>
+              <y>288.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="38d4f341-8e65-46df-a50a-50d3b39e2a25">
+          <annotation></annotation>
+          <name>no more</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>no more</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1094d37b-38ae-4a22-a541-3cf0bf249926</refId>
+          </destination>
+          <source>
+            <refId>62539372-cd6e-48d1-995c-43986cfb1e29</refId>
+          </source>
+          <positions>
+            <point>
+              <x>247.0</x>
+              <y>290.0</y>
+            </point>
+            <point>
+              <x>419.0</x>
+              <y>63.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="829e453b-9822-4e8a-bea1-1002649fb4d7">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>803ac15f-5591-4651-92c9-d1ffe1339970</refId>
+          </destination>
+          <source>
+            <refId>62539372-cd6e-48d1-995c-43986cfb1e29</refId>
+          </source>
+          <positions>
+            <point>
+              <x>247.0</x>
+              <y>290.0</y>
+            </point>
+            <point>
+              <x>83.0</x>
+              <y>292.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>cd75ca75-e64e-4b1e-9fe9-8dbc76f03865</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="94a3142c-5f61-4b54-bf57-818ad3ac57bb">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>areemplazar</contextKey>
+          <expression id="14e0f827-f53a-4e4a-a7d9-5be66da8d183">
+            <annotation></annotation>
+            <name>Result Field: resultString</name>
+            <fieldName>resultString</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="473cd36f-3f17-4840-bec2-89920da08a8b">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>|</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="aa2c00a1-fa7e-4841-895b-96a48a86afb7">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>reemplazo</contextKey>
+          <expression id="d9ea8989-ed53-4419-8158-a61d795355a0">
+            <annotation></annotation>
+            <name>Result Field: resultString</name>
+            <fieldName>resultString</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="0cbd599e-49dc-402d-847d-a182701bdef6">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>|</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="d5489c6f-cb01-4884-a637-f7977db59da2">
+      <annotation>b58b63f0-779f-42b6-8666-a4c6f644c17a.d5489c6f-cb01-4884-a637-f7977db59da2.description</annotation>
+      <name>Do Nothing</name>
+      <bounds>
+        <x>354.0</x>
+        <y>254.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="f1d59ef7-49aa-4bd3-96e6-35386a77a1ba">
+        <baseIcon>display_report.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="0584ca26-c270-45c7-8bfa-553bbc90c8f6">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>razonsocial</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="920c4967-f4df-434e-bff7-b2a37e123591">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>62539372-cd6e-48d1-995c-43986cfb1e29</refId>
+          </destination>
+          <source>
+            <refId>d5489c6f-cb01-4884-a637-f7977db59da2</refId>
+          </source>
+          <positions>
+            <point>
+              <x>404.0</x>
+              <y>288.0</y>
+            </point>
+            <point>
+              <x>344.32331325943267</x>
+              <y>313.7622409675128</y>
+            </point>
+            <point>
+              <x>307.31357774100024</x>
+              <y>314.2337025664737</y>
+            </point>
+            <point>
+              <x>247.0</x>
+              <y>290.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="9976d7da-77e2-45b9-92af-8337e4fa9517">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>razonsocialfinal</contextKey>
+          <expression id="47327dbe-412e-492d-9dc2-6e88f9109f0e">
+            <annotation></annotation>
+            <name>Input: razonsocial</name>
+            <fieldName>razonsocial</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <replaceAllFilter id="90d26011-bc0b-4494-9f65-73e10a41fda3">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>true</ignoreCase>
+                <searchString>${areemplazar}</searchString>
+                <replaceString>${reemplazo}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>3651763a-2fc3-455d-a9b7-02c7b0bad300</startSteps>
+</flow>

@@ -62,8 +62,8 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
       <annotation>ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.description</annotation>
       <name>Read from File</name>
       <bounds>
-        <x>254.0</x>
-        <y>78.0</y>
+        <x>0.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -318,8 +318,8 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
       <annotation>ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.63bfa1e4-c55f-466e-b546-7555bf1c75ed.description</annotation>
       <name>List Appender</name>
       <bounds>
-        <x>254.0</x>
-        <y>259.0</y>
+        <x>0.0</x>
+        <y>181.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -406,7 +406,7 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="972b1c1f-0aa7-401c-b96c-5d30736c7644">
+        <transition id="ad968d34-0740-449d-8250-1eea7169e434">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -422,20 +422,20 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
           </source>
           <positions>
             <point>
-              <x>280.0</x>
-              <y>290.0</y>
+              <x>50.0</x>
+              <y>215.0</y>
             </point>
             <point>
-              <x>312.79314831737577</x>
-              <y>233.87861883885435</y>
+              <x>75.0</x>
+              <y>155.0</y>
             </point>
             <point>
-              <x>320.75846798561986</x>
-              <y>174.80249796604394</y>
+              <x>75.0</x>
+              <y>94.0</y>
             </point>
             <point>
-              <x>304.0</x>
-              <y>112.0</y>
+              <x>50.0</x>
+              <y>34.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -479,8 +479,8 @@ ed3442ab-de8c-4dd7-98d1-1da6fbdf67da.c95313cb-e8b4-4f59-8771-0cd88f236906.descri
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>590.0</x>
-        <y>79.0</y>
+        <x>189.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -656,8 +656,8 @@ scriptletResult = darformato</script>
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>444.0</x>
-        <y>259.0</y>
+        <x>189.0</x>
+        <y>181.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>

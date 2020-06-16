@@ -51,8 +51,8 @@
       <annotation>042be2a3-fb50-47f8-a8df-01250c418bf2.e5264031-dfd3-41f1-abd2-936611cb66fd.description</annotation>
       <name>Listado</name>
       <bounds>
-        <x>80.0</x>
-        <y>200.0</y>
+        <x>3.0</x>
+        <y>2.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -163,8 +163,8 @@
       <annotation></annotation>
       <name>Nomenclador</name>
       <bounds>
-        <x>305.0</x>
-        <y>195.0</y>
+        <x>151.0</x>
+        <y>2.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -281,8 +281,8 @@
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>484.0</x>
-        <y>50.0</y>
+        <x>294.0</x>
+        <y>153.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -325,8 +325,8 @@
       <annotation>042be2a3-fb50-47f8-a8df-01250c418bf2.f995b029-6031-4605-96c1-d5f9b93ea147.description</annotation>
       <name>Display Message</name>
       <bounds>
-        <x>488.0</x>
-        <y>195.0</y>
+        <x>294.0</x>
+        <y>2.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -419,8 +419,8 @@
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>203.0</x>
-        <y>342.0</y>
+        <x>3.0</x>
+        <y>153.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
