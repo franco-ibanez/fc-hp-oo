@@ -1,35 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow id="e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3">
-  <descriptionCdata><![CDATA[e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.069ba59b-c8e6-403c-9055-c97aa4820676.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.0a9e1538-7860-4dc2-a4d3-0ed1d2c3bec1.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.111a35ed-e180-4b33-bbdb-97152c4f5dfb.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.1c0ff981-bc4b-408b-b988-953fe432a397.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.1d0aea39-eff1-4909-8509-bbf6e2d3c3ef.prompt=HostName\:
+  <descriptionCdata><![CDATA[e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.111a35ed-e180-4b33-bbdb-97152c4f5dfb.prompt=Password\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.2723b3d0-f0af-48d8-8b0c-7673f78dbf85.prompt=HostName\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.2ca064be-85ba-435d-a7f2-76131354ace3.prompt=Password\:
+e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.31a96110-32ec-45bd-85f1-fd1776b1e525.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.31c95e79-397b-411b-a0b6-3ac0be3dd763.description=<pre> \nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\n    keyName - The key to check, i.e. the name of the flow variable. \n    trimSpaces - If set on "true" then all the whitespaces will be removed from the value stored. \nValid values\: true, false\nDefault value\: false\n\nReturns\: \n    The value in the specified key, i.e. flow variable with all whitespaces removed.\n\nResponses\:\n    isNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\n    notNull - If some value is stored in the key, i.e the flow variable has a value assigned. \n\nNotes\: \n    1. If the "trimSpaces" input is set on "true" and the value from "keyName" contains only whitespaces then the response will be "isNull". \n    2. If the "trimSpaces" input is set on "false" and the value from "keyName" contains only whitespaces then the response will be "notNull". \n    3. If any other value than "true" or "false" is passed on "trimSpaces" input then the default value (false) will be used.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.5db562a0-fc5e-4088-a7e2-9a61aa759b83.prompt=UserName\:
+e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.695c795b-755d-4ba9-9c47-9f160992fa3a.prompt=HostName\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.696aa309-0c41-46ae-9bd7-cb75ee33c599.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.69e3301c-b95a-42c4-8df0-030c2edbb55a.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.7e96f1bd-a535-4e0c-b64a-36f76fa65794.prompt=UserName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.800b14e9-9a2a-4eae-9f39-3437df15662f.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.82c78548-2615-4e56-8229-1fef7c9b16d1.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.867feddd-d678-42ea-980d-f9dc92895c4d.prompt=UserName\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.8792ed19-39f8-493b-ac08-ef7c8b0c03e0.prompt=UserName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.88e57606-53c6-46d8-b17d-d2b806968a39.prompt=UserName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.8fe4eeb8-a4cf-4368-9396-fe6f2d15b4e1.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.95570b3c-f471-409c-a098-034b25b6ddce.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.95857298-25e1-4390-92e1-f0c4b5745cb5.prompt=HostName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.9d7be15e-9a4b-4290-8e9f-54c148d3a9cc.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a1788b0a-184d-4aee-900f-1e9efd52ba3d.prompt=HostName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a1dc01b9-8f53-4a06-826b-bc80397b9708.description=<pre>\nGenerates a random password.\n\nInputs\:\npasswordLength - the required length of the password\nnumberOfNonAlphanumericCharacters - the minimum number of non alphanumeric numbers\n\nResponses\:\nsuccess - password generated\nfailure - failed to generate password\n\nExtra Results\:\npassword - the generated password\n\nNOTE\:\nIf passwordLength or numberOfNonAlphanumericCharacters are less than 0 or if numberOfNonAlphanumericCharacters is greater than passwordLength  the operation will succeed  and will return an empty password.\n</pre>\n
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a753fc4f-9858-4a23-9b6d-4ed0a1a61ef8.prompt=UserName\:
+e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.894d8c56-54f6-4901-beff-54113d59bcc8.prompt=Password\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.b4175636-e671-4b8f-acad-1450d32a5315.description=<pre>The operation runs a SSH command on the host.\n\nInputs\:\n    host - Hostname or ip address.\n    port - The port number for running the command. It overwrites the port given inside the host input (in a syntax like host\:port), if this exists.\n    command - The command to execute.\n    arguments - The arguments to pass to the command.\n    pty - Whether to use pty.\nValid values\: true, false. \nDefault value\: false.\n    privateKeyFile - The absolute path to the private key file on the RAS host. The private key file must be in OpenSSH format.\n    username - Username to connect as.\n    password - Password of user. If using a private key file this will be used as the passphrase for the file.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 ( 90 seconds ).\n    characterSet - The character encoding used for input stream encoding from the target machine. \nValid values\: SJIS, EUC-JP, UTF-8.  \nDefault value\: UTF-8. \n    closeSession - If "false" the ssh session will be cached for future calls of this operation during the life of the flow. If "true" the ssh session used by this operation will be closed.\nValid values\: true, false.\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. It contains the STDERR of the command if something went wrong or STDOUT otherwise.\n    STDERR - The STDERR of the command.\n    STDOUT - The STDOUT of the command.\n    exitStatus - Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code.\n\nResponses\:\n    success - The command was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. If the SSH session is cached then only the connection is kept and not the context (variables) represented by SSH channel.\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.bdf41309-b2d0-41ae-af5c-97fa43ceb0d7.prompt=Password\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.c7217329-2b2f-4341-a1cd-58a2cbd63bec.prompt=UserName\:
-e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.cd94f96d-913a-41ba-8b3d-50807b1c685e.prompt=HostName\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.d633e122-1427-4ff5-8f47-d54e337c1cb5.description=<pre>\nCreates a SSH Shell session to be used by multiple SSH Shell operations.\n\nInputs\:\n    host - The hostname/IP address of the remote machine.\n    port - The port number for SSH protocol.\nDefault value\: 22\n    username - Name of the account on the remote machine.\n    password - The password for the username. When using a private key file or a private key string, this input will be used as the passphrase for the file or string. For security reasons it is recommend to provide this input and protect the private key when using the 'privateKeyData' and the 'privateKeyFile' inputs.\n    proxyHost - The proxy server used to access the remote machine.\n    proxyPort - The proxy server port. Default\: 8080. Valid values\: -1 and numbers greater than 0.\n    proxyUsername - The user name used when connecting to the proxy.\n    proxyPassword - The proxy server password associated with the proxyUsername input value.\n    privateKeyFile - Path to private key file (OpenSSH type) on the machine where is the worker. For security reasons it is recommend that the private key be protected by a passphrase that should be provided through the 'password' input.\n    privateKeyData \u2013 A string representing the private key (OpenSSH type) used for authenticating the user. This string is usually the content of a private key file. The 'privateKeyData' and the 'privateKeyFile' inputs are mutually exclusive. For security reasons it is recommend that the private key be protected by a passphrase that should be provided through the 'password' input.\n    knownHostsPolicy - The policy used for managing known_hosts file. We recommend to use a "strict" policy so as to verify the host key against a local file containing known, trustworthy machines. If you choose "allow" or "add" policy then you will connect to the server without any verification. If there is a Man-In-The-Middle attack then you will be connected to a fake server and the SSH commands that you send will go through that fake server. \nValid values\:  \nallow\=It will permit the connection to any hosts. \nstrict\=It will permit the connection only to the hosts specified in known_hosts file. \nadd\=It will permit the connection to any hosts, if the host is not in the known_hosts file it will be added. \nDefault value\: strict\n    allowedCiphers - A comma separated list of ciphers that will be used in the client-server handshake mechanism when the connection is created. Check the notes section for security concerns regarding your choice of ciphers. The default value will be used even if the input is not added to the operation.\nDefault value\: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-ctr,aes192-cbc,aes256-ctr,aes256-cbc\n    connectTimeout - Time in milliseconds to wait for the connection to be made.\nDefault value\: 10000\n    useGlobalContext -  Specifies whether to enable the session sharing into the subflows.\nValid values\: false, true \nDefault value\: false\n\nResults\:\n    returnResult - The newly created sessionId.\n    sessionId - The ssh session identifier to be used for SSH Shell and SSH Shell Logoff operations.  This session identifier can only be used in the flow run context that it is created in. Multiple ssh shell sessions can be created and distinguished by assigning this sessionId to unique flow variables.\n    TimedOut - Is set to "true" if the value set in the "timeout" input has elapsed and the command timed out.\n\nResponses\:\n    success - SSH shell session and sessionId successfully created.\n    failure - An error occurred while attempting to create the ssh shell session.\n\nNotes\:\n1. Hidden inputs\:\n    knownHostsPath -  Specifies the path to the known_hots file on the running server.\nDefault value\: <user.home>/.ssh/known_hosts\nExamples\: /home/admin/.ssh/known_hosts\n2. In order to use private keys with different encryption types (ex.\: aes256-cbc) needs to be updated the <OO_Home>/java/lib/security/local_policy.jar JAR file with one that accept all security policies (ex.\: http\://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). After update you must restart the Studio or Central service.\n3. The operation supports connections through HTTP proxy with username and password authentication.\n4. For security reasons, HPE does not recommend the use of outdated or vulnerable ciphers. Therefore "arcfour" cihpers should be avoided because they do not provide confidentiality for data in transit and using them can lead to information leakage.\nArcfour is vulnerable to the following attacks\: Fluhrer, Mantin and Shamir attack, Klein's attack, Royal Holloway attack, Bar-mitzvah attack and NOMORE attack.\n</pre>
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.d98f5278-c8e4-4b15-9e7b-98fe3e038593.prompt=HostName\:
+e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.e312a1e1-c564-413f-853e-b08fb01c20b6.prompt=UserName\:
 e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt=HostName\:
 ]]></descriptionCdata>
   <annotation></annotation>
@@ -198,35 +185,6 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="21aa0ffc-d35f-4e1b-a226-44c45f77340b">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>31c95e79-397b-411b-a0b6-3ac0be3dd763</refId>
-          </destination>
-          <source>
-            <refId>d633e122-1427-4ff5-8f47-d54e337c1cb5</refId>
-          </source>
-          <positions>
-            <point>
-              <x>121.0</x>
-              <y>90.0</y>
-            </point>
-            <point>
-              <x>358.0</x>
-              <y>195.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="29956f4a-e099-4747-bec5-f9de0460a36c">
           <annotation></annotation>
           <name>failure</name>
@@ -249,6 +207,35 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
             <point>
               <x>420.0</x>
               <y>156.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="5e25597a-090c-45b5-b59c-88b1db0a6066">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>31a96110-32ec-45bd-85f1-fd1776b1e525</refId>
+          </destination>
+          <source>
+            <refId>d633e122-1427-4ff5-8f47-d54e337c1cb5</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>190.0</x>
+              <y>38.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -315,8 +302,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
-        <x>152.0</x>
-        <y>192.0</y>
+        <x>0.0</x>
+        <y>130.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -359,8 +346,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.31c95e79-397b-411b-a0b6-3ac0be3dd763.description</annotation>
       <name>Check Null</name>
       <bounds>
-        <x>0.0</x>
-        <y>372.0</y>
+        <x>253.0</x>
+        <y>0.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -477,178 +464,12 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <assignments/>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="a1dc01b9-8f53-4a06-826b-bc80397b9708">
-      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a1dc01b9-8f53-4a06-826b-bc80397b9708.description</annotation>
-      <name>Crear Password</name>
-      <bounds>
-        <x>517.0</x>
-        <y>0.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="7bcb9da4-2d56-490f-a377-ff8ee4a3b728">
-        <baseIcon>astrologer.png</baseIcon>
-        <basePath>Others/</basePath>
-        <readOnly>false</readOnly>
-        <layers/>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <staticBinding id="876afea1-88f9-4932-a494-63555215b5f6">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>passwordLength</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>8</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="ef2c4a55-89d6-40e9-8e84-31a533ae88df">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>numberOfNonAlphanumericCharacters</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>0</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="fa42c462-f262-4435-aafd-11177ed52b0f">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>95570b3c-f471-409c-a098-034b25b6ddce</refId>
-          </destination>
-          <source>
-            <refId>a1dc01b9-8f53-4a06-826b-bc80397b9708</refId>
-          </source>
-          <positions>
-            <point>
-              <x>530.0</x>
-              <y>34.0</y>
-            </point>
-            <point>
-              <x>658.0</x>
-              <y>34.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="ac40100d-03b8-46c6-80f6-6f1465e05355">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </destination>
-          <source>
-            <refId>a1dc01b9-8f53-4a06-826b-bc80397b9708</refId>
-          </source>
-          <positions>
-            <point>
-              <x>530.0</x>
-              <y>34.0</y>
-            </point>
-            <point>
-              <x>420.0</x>
-              <y>156.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>7aa08ff2-5d8b-4839-901e-93b61aebbe7e</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="6f018883-f64e-4773-bb72-f5010e08bf9e">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>APPEND</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>resultado</contextKey>
-          <expression id="1b758b2e-ef97-4451-8ed0-47a4935ec3e5">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="1bfb3ff7-02f9-49f8-a49c-e23781c1aa3e">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>New Random Password Generated</searchString>
-                <replaceString>Contrase&#241;a creada</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <concat id="ff103521-99c2-4a25-8434-9ebf00a26c19">
-                <annotation></annotation>
-                <name>Format</name>
-                <text>|</text>
-                <position>END</position>
-              </concat>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-        <flowVariableAssignment id="c9fc4d2b-383f-454f-b125-30c604b86b9f">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>OVERWRITE</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>client_password</contextKey>
-          <expression id="b72d085e-3edc-4b1a-9682-6cd89defe8f6">
-            <annotation></annotation>
-            <name>Result Field: password</name>
-            <fieldName>password</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters/>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
     <returnStep id="79725a19-40a6-4df5-8467-806278cfa65e">
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
-        <x>311.0</x>
-        <y>372.0</y>
+        <x>0.0</x>
+        <y>260.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -691,7 +512,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.696aa309-0c41-46ae-9bd7-cb75ee33c599.description</annotation>
       <name>Crea Tenant</name>
       <bounds>
-        <x>83.0</x>
+        <x>433.0</x>
         <y>0.0</y>
       </bounds>
       <layer>-1</layer>
@@ -829,7 +650,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>5000</value>
+          <value>15000</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="165f5205-7b7e-4488-ad72-1d469518a9a0">
@@ -936,6 +757,15 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
             <fieldName>returnResult</fieldName>
             <sourceType>RAWRESULT</sourceType>
             <filters>
+              <regexFilter id="a2423d6d-93f1-4958-accf-bb0dcb57ab07">
+                <annotation></annotation>
+                <name>Regular Expression</name>
+                <expression>[0-9].*(?=\n)</expression>
+                <ignoreCase>false</ignoreCase>
+                <regType>JAVA</regType>
+                <entireString>true</entireString>
+                <multiLine>false</multiLine>
+              </regexFilter>
               <concat id="0f90041b-f9b3-4d2d-adac-684cb6070273">
                 <annotation></annotation>
                 <name>Format</name>
@@ -958,8 +788,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.69e3301c-b95a-42c4-8df0-030c2edbb55a.description</annotation>
       <name>Crea grupo de Nodos</name>
       <bounds>
-        <x>257.0</x>
-        <y>0.0</y>
+        <x>433.0</x>
+        <y>260.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -1032,7 +862,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <isPersisted>true</isPersisted>
           <inputSymbol>command</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>sudo /opt/OV/bin/nnmnodegroup.ovpl create -name ${id_suscriber}-${razon_social} -filter &quot;sysName like ${id_suscriber}-*&quot; -addToPerfSPIReports true -addToViewFilterList true -calculateStatus true | sed -n &apos;4p&apos; | awk &apos;{print $4}&apos;</value>
+          <value>sudo /opt/OV/bin/nnmnodegroup.ovpl create -name ${id_suscriber} -filter &quot;sysName like ${id_suscriber}-*&quot; -addToPerfSPIReports true -addToViewFilterList true -calculateStatus true | sed -n &apos;4p&apos; | awk &apos;{print $4}&apos;</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="f02bf32c-6e07-4b68-9a95-3aee57698a69">
@@ -1096,7 +926,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>5000</value>
+          <value>15000</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="18322eec-a7e0-4185-97b6-d14bc2ef2c3f">
@@ -1203,10 +1033,10 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
             <fieldName>returnResult</fieldName>
             <sourceType>RAWRESULT</sourceType>
             <filters>
-              <regexFilter id="df93c304-aedf-4c17-a32f-886347d7be42">
+              <regexFilter id="529093e2-324c-46b4-a338-9a5cdb2d3690">
                 <annotation></annotation>
                 <name>Regular Expression</name>
-                <expression>.*(?=:)</expression>
+                <expression>[^.*]already exists.</expression>
                 <ignoreCase>false</ignoreCase>
                 <regType>JAVA</regType>
                 <entireString>true</entireString>
@@ -1216,8 +1046,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
                 <annotation></annotation>
                 <name>Replace</name>
                 <ignoreCase>false</ignoreCase>
-                <searchString>Unable to create group</searchString>
-                <replaceString>No se pudo crear el grupo de nodos</replaceString>
+                <searchString> already exists.</searchString>
+                <replaceString>El grupo ya existe.</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
               <concat id="8a600c9c-ee45-4a42-ad0a-2707e2776cad">
@@ -1236,8 +1066,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.b4175636-e671-4b8f-acad-1450d32a5315.description</annotation>
       <name>Crea Nodos</name>
       <bounds>
-        <x>387.0</x>
-        <y>0.0</y>
+        <x>233.0</x>
+        <y>260.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -1374,7 +1204,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>10000</value>
+          <value>15000</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="9bce1934-a6ee-45c8-bb03-c0037248e231">
@@ -1405,35 +1235,6 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="8200c87f-0029-4189-81b3-b308458c53e9">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>a1dc01b9-8f53-4a06-826b-bc80397b9708</refId>
-          </destination>
-          <source>
-            <refId>b4175636-e671-4b8f-acad-1450d32a5315</refId>
-          </source>
-          <positions>
-            <point>
-              <x>417.0</x>
-              <y>34.0</y>
-            </point>
-            <point>
-              <x>530.0</x>
-              <y>34.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
         <transition id="60f21a80-d819-4457-afdf-86b21ba4e8d8">
           <annotation></annotation>
           <name>failure</name>
@@ -1456,6 +1257,43 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
             <point>
               <x>420.0</x>
               <y>156.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="13583a4f-8d17-41bc-9a1a-68348ec4603a">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
+          </destination>
+          <source>
+            <refId>b4175636-e671-4b8f-acad-1450d32a5315</refId>
+          </source>
+          <positions>
+            <point>
+              <x>283.0</x>
+              <y>294.0</y>
+            </point>
+            <point>
+              <x>277.34260371822063</x>
+              <y>229.24666906397084</y>
+            </point>
+            <point>
+              <x>264.96230692222036</x>
+              <y>205.57845460102925</y>
+            </point>
+            <point>
+              <x>215.0</x>
+              <y>164.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -1526,1172 +1364,12 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="95570b3c-f471-409c-a098-034b25b6ddce">
-      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.95570b3c-f471-409c-a098-034b25b6ddce.description</annotation>
-      <name>Crea cuenta de Usuarios</name>
-      <bounds>
-        <x>647.0</x>
-        <y>0.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="beb94998-9d8c-415d-ad64-a2a1e5ed854a">
-        <baseIcon>workstation_network.png</baseIcon>
-        <basePath>/Others/</basePath>
-        <readOnly>false</readOnly>
-        <layers>
-          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
-            <baseIcon>remote.png</baseIcon>
-            <basePath>/Annotations/</basePath>
-            <readOnly>false</readOnly>
-            <layers/>
-          </iconSpec>
-        </layers>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <userInputBinding id="1d0aea39-eff1-4909-8509-bbf6e2d3c3ef">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.1d0aea39-eff1-4909-8509-bbf6e2d3c3ef.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="a063a502-adfb-41a7-83e7-f44d3ff7383f">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>port</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="79385d51-2fb9-482a-8238-7e96403fc637">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>command</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>sudo /opt/OV/bin/nnmsecurity.ovpl -createUserAccount ${id_suscriber} -role &quot;Operator Level 1&quot; -password &quot;${client_password}&quot;</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="5dce30d2-295b-4017-a607-7227839be9c7">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>pty</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>true</value>
-          <record>false</record>
-        </staticBinding>
-        <userInputBinding id="c7217329-2b2f-4341-a1cd-58a2cbd63bec">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>username</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.c7217329-2b2f-4341-a1cd-58a2cbd63bec.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <userInputBinding id="8fe4eeb8-a4cf-4368-9396-fe6f2d15b4e1">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>ENCRYPTED</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>password</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.8fe4eeb8-a4cf-4368-9396-fe6f2d15b4e1.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="08eff02f-ef21-42ec-9dff-2c97b3c48b89">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>timeout</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>10000</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="fc4a9de1-41c0-47a1-ab8c-2ebd65fa3a49">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>characterSet</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>UTF-8</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="cc932986-47f5-41b8-9504-7ea532f339d9">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>closeSession</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>false</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="110a30a0-b127-4f99-8c79-f2cb73eec993">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>9d7be15e-9a4b-4290-8e9f-54c148d3a9cc</refId>
-          </destination>
-          <source>
-            <refId>95570b3c-f471-409c-a098-034b25b6ddce</refId>
-          </source>
-          <positions>
-            <point>
-              <x>658.0</x>
-              <y>34.0</y>
-            </point>
-            <point>
-              <x>666.0</x>
-              <y>150.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="4ee4d6ae-bbf6-4eca-9c1f-191a670926e2">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>9d7be15e-9a4b-4290-8e9f-54c148d3a9cc</refId>
-          </destination>
-          <source>
-            <refId>95570b3c-f471-409c-a098-034b25b6ddce</refId>
-          </source>
-          <positions>
-            <point>
-              <x>697.0</x>
-              <y>34.0</y>
-            </point>
-            <point>
-              <x>722.0</x>
-              <y>94.0</y>
-            </point>
-            <point>
-              <x>722.0</x>
-              <y>100.0</y>
-            </point>
-            <point>
-              <x>697.0</x>
-              <y>160.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>40581c53-826b-4299-8839-7454f2b1af6c</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="e6cf4128-eef3-4713-9371-6ef18dbdec36">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>APPEND</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>resultado</contextKey>
-          <expression id="2ce4cac6-6b86-42c1-845b-c1b8f4fbd658">
-            <annotation></annotation>
-            <name>Result Field: STDOUT</name>
-            <fieldName>STDOUT</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="15e02914-9314-4379-80aa-7939cb4689ab">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>An account exists with name</searchString>
-                <replaceString>Cuenta existente</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="1e624e04-ee33-4936-825f-81e967bace63">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>User account</searchString>
-                <replaceString>Cuenta</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="15b1f78a-0963-4f2b-be76-58d3285e0c89">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>created with role</searchString>
-                <replaceString>creada con rol</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <regexFilter id="ed5dddd9-cf5c-45d5-97dd-23375536ade0">
-                <annotation></annotation>
-                <name>Regular Expression</name>
-                <expression>.*(?=\n)</expression>
-                <ignoreCase>false</ignoreCase>
-                <regType>JAVA</regType>
-                <entireString>true</entireString>
-                <multiLine>false</multiLine>
-              </regexFilter>
-              <concat id="e4184e3b-dbc3-47ed-9588-3cc864de859a">
-                <annotation></annotation>
-                <name>Format</name>
-                <text>|</text>
-                <position>END</position>
-              </concat>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
-    <step id="9d7be15e-9a4b-4290-8e9f-54c148d3a9cc">
-      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.9d7be15e-9a4b-4290-8e9f-54c148d3a9cc.description</annotation>
-      <name>Crea grupo de Usuarios</name>
-      <bounds>
-        <x>647.0</x>
-        <y>126.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="55722a7a-eca4-4a75-a40f-a40979c1af46">
-        <baseIcon>workstation_network.png</baseIcon>
-        <basePath>/Others/</basePath>
-        <readOnly>false</readOnly>
-        <layers>
-          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
-            <baseIcon>remote.png</baseIcon>
-            <basePath>/Annotations/</basePath>
-            <readOnly>false</readOnly>
-            <layers/>
-          </iconSpec>
-        </layers>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <userInputBinding id="cd94f96d-913a-41ba-8b3d-50807b1c685e">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.cd94f96d-913a-41ba-8b3d-50807b1c685e.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="5fd55ce8-2c5b-4a59-b59a-fab60447ae69">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>port</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="30d81558-d7c3-41aa-9f2d-868c1cc2e9cb">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>command</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>sudo /opt/OV/bin/nnmsecurity.ovpl -createUserGroup ${id_suscriber} -displayName ${razon_social} -description ${id_suscriber}-${razon_social} | awk &apos;{print $1}&apos;</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="5e9f78cc-0e9a-4f08-ae09-e8f661dc05f8">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>pty</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>true</value>
-          <record>false</record>
-        </staticBinding>
-        <userInputBinding id="a753fc4f-9858-4a23-9b6d-4ed0a1a61ef8">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>username</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a753fc4f-9858-4a23-9b6d-4ed0a1a61ef8.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <userInputBinding id="82c78548-2615-4e56-8229-1fef7c9b16d1">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>ENCRYPTED</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>password</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.82c78548-2615-4e56-8229-1fef7c9b16d1.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="6b7ff2d3-c84c-4e7f-86fc-83a2499fe8a3">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>timeout</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>10000</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="3b0eb31f-039a-4b06-8827-d973bf5d71e8">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>characterSet</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>UTF-8</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="73016e30-dc34-4885-8f80-68840571bc51">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>closeSession</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>false</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="71c8341b-f79f-41d4-a5b6-23ee780b21f8">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>069ba59b-c8e6-403c-9055-c97aa4820676</refId>
-          </destination>
-          <source>
-            <refId>9d7be15e-9a4b-4290-8e9f-54c148d3a9cc</refId>
-          </source>
-          <positions>
-            <point>
-              <x>659.0</x>
-              <y>151.0</y>
-            </point>
-            <point>
-              <x>783.0</x>
-              <y>254.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="e5bf6ba1-d703-4add-a30e-7b08c27bf7d8">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </destination>
-          <source>
-            <refId>9d7be15e-9a4b-4290-8e9f-54c148d3a9cc</refId>
-          </source>
-          <positions>
-            <point>
-              <x>659.0</x>
-              <y>151.0</y>
-            </point>
-            <point>
-              <x>420.0</x>
-              <y>156.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>40581c53-826b-4299-8839-7454f2b1af6c</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="25350a35-c0b6-4c0a-9a7e-748d24beaaf5">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>APPEND</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>resultado</contextKey>
-          <expression id="bab666e7-8812-4a4d-a047-9f7f8dcea3f7">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="7b45a654-b1e6-457b-a21d-adcd8d98f2f6">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>A user group already exists with name</searchString>
-                <replaceString>Un grupo existe con nombre</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <regexFilter id="19ce3cc2-f65f-45f7-88a3-73c2c4e80eba">
-                <annotation></annotation>
-                <name>Regular Expression</name>
-                <expression>.*(?=\n)</expression>
-                <ignoreCase>true</ignoreCase>
-                <regType>JAVA</regType>
-                <entireString>true</entireString>
-                <multiLine>false</multiLine>
-              </regexFilter>
-              <concat id="8817707f-61c6-41fd-b82b-04315a9670c3">
-                <annotation></annotation>
-                <name>Format</name>
-                <text>|</text>
-                <position>END</position>
-              </concat>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
-    <step id="069ba59b-c8e6-403c-9055-c97aa4820676">
-      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.069ba59b-c8e6-403c-9055-c97aa4820676.description</annotation>
-      <name>Asigna cuenta de Usuario a grupo</name>
-      <bounds>
-        <x>645.0</x>
-        <y>254.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="0b5555ac-ea77-48aa-b7ef-9d2600eb3ffe">
-        <baseIcon>workstation_network.png</baseIcon>
-        <basePath>/Others/</basePath>
-        <readOnly>false</readOnly>
-        <layers>
-          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
-            <baseIcon>remote.png</baseIcon>
-            <basePath>/Annotations/</basePath>
-            <readOnly>false</readOnly>
-            <layers/>
-          </iconSpec>
-        </layers>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <userInputBinding id="95857298-25e1-4390-92e1-f0c4b5745cb5">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.95857298-25e1-4390-92e1-f0c4b5745cb5.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="62a454a0-9a1f-40ef-97a7-98ce2a71c240">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>port</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="7afaac55-22f4-4cf4-9f1e-e7ad0d3dc113">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>command</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>sudo /opt/OV/bin/nnmsecurity.ovpl -assignUserToGroup -user ${id_suscriber} -userGroup ${id_suscriber} | awk &apos;{print $3}&apos;</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="0ac3b196-b815-484e-a819-502b8c7664d7">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>pty</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>true</value>
-          <record>false</record>
-        </staticBinding>
-        <userInputBinding id="867feddd-d678-42ea-980d-f9dc92895c4d">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>username</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.867feddd-d678-42ea-980d-f9dc92895c4d.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <userInputBinding id="0a9e1538-7860-4dc2-a4d3-0ed1d2c3bec1">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>ENCRYPTED</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>password</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.0a9e1538-7860-4dc2-a4d3-0ed1d2c3bec1.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="bf29ab35-cb1d-4554-840b-e4575ef36102">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>timeout</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>10000</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="fd5cbf8b-6cce-469f-824d-6cb70cf47d79">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>characterSet</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>UTF-8</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="b3a9a33b-b8e0-480a-830a-a578ada50a14">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>closeSession</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>false</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="5a9263e6-3ffc-468f-a14c-195e1729f7dc">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>800b14e9-9a2a-4eae-9f39-3437df15662f</refId>
-          </destination>
-          <source>
-            <refId>069ba59b-c8e6-403c-9055-c97aa4820676</refId>
-          </source>
-          <positions>
-            <point>
-              <x>657.0</x>
-              <y>279.0</y>
-            </point>
-            <point>
-              <x>658.0</x>
-              <y>382.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="d0f923f5-0134-425d-be92-81c7ee4dccfb">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </destination>
-          <source>
-            <refId>069ba59b-c8e6-403c-9055-c97aa4820676</refId>
-          </source>
-          <positions>
-            <point>
-              <x>657.0</x>
-              <y>279.0</y>
-            </point>
-            <point>
-              <x>420.0</x>
-              <y>156.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>40581c53-826b-4299-8839-7454f2b1af6c</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="d1fd7726-4b2d-467e-942d-2c027951533c">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>APPEND</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>resultado</contextKey>
-          <expression id="cf41e3b5-047c-4ef2-909d-cf48a823cdde">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <concat id="e54191d4-36f3-41f0-ac9c-69610aba280c">
-                <annotation></annotation>
-                <name>Format</name>
-                <text>Cuenta de usuario </text>
-                <position>BEGINNING</position>
-              </concat>
-              <replaceAllFilter id="79aacbfb-466d-4e62-abfd-1a6242f96284">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>added</searchString>
-                <replaceString>agregada al grupo</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <regexFilter id="4af363f7-4866-474e-bb32-e8d981a0bb8c">
-                <annotation></annotation>
-                <name>Regular Expression</name>
-                <expression>.*(?=\n)</expression>
-                <ignoreCase>true</ignoreCase>
-                <regType>JAVA</regType>
-                <entireString>true</entireString>
-                <multiLine>false</multiLine>
-              </regexFilter>
-              <concat id="2d738d36-6832-4c2c-99b6-b2d594a661e7">
-                <annotation></annotation>
-                <name>Format</name>
-                <text>|</text>
-                <position>END</position>
-              </concat>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
-    <step id="800b14e9-9a2a-4eae-9f39-3437df15662f">
-      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.800b14e9-9a2a-4eae-9f39-3437df15662f.description</annotation>
-      <name>Asigna grupo de Usuario a grupo de Seguridad</name>
-      <bounds>
-        <x>644.0</x>
-        <y>372.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <iconSpec id="6e5be8b3-5641-49ed-b6be-e8b35e5a4d5c">
-        <baseIcon>workstation_network.png</baseIcon>
-        <basePath>/Others/</basePath>
-        <readOnly>false</readOnly>
-        <layers>
-          <iconSpec id="2edffe2c-e62f-42ad-b5df-063e498aadc6">
-            <baseIcon>remote.png</baseIcon>
-            <basePath>/Annotations/</basePath>
-            <readOnly>false</readOnly>
-            <layers/>
-          </iconSpec>
-        </layers>
-      </iconSpec>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings>
-        <userInputBinding id="a1788b0a-184d-4aee-900f-1e9efd52ba3d">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.a1788b0a-184d-4aee-900f-1e9efd52ba3d.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="c19882a4-4552-42c9-8fe1-ad68e550d170">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>port</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="6f5d4942-7443-4188-a9b6-2c989eeb2c98">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>command</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>sudo /opt/OV/bin/nnmsecurity.ovpl -assignUserGroupToSecurityGroup -userGroup ${id_suscriber} -securityGroup CLI_${id_suscriber}-${razon_social} -role &quot;level1&quot;</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="1779b4cd-6e99-4536-bcb8-915353e15e10">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>pty</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>true</value>
-          <record>false</record>
-        </staticBinding>
-        <userInputBinding id="88e57606-53c6-46d8-b17d-d2b806968a39">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>username</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.88e57606-53c6-46d8-b17d-d2b806968a39.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <userInputBinding id="1c0ff981-bc4b-408b-b988-953fe432a397">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>ENCRYPTED</inputType>
-          <isList>false</isList>
-          <required>true</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>password</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <record>false</record>
-          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.1c0ff981-bc4b-408b-b988-953fe432a397.prompt</prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
-        <staticBinding id="668c111d-c388-45e3-9a78-7c2d557231a7">
-          <annotation></annotation>
-          <toContextKey></toContextKey>
-          <fromContextKey></fromContextKey>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>timeout</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>10000</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="fafc44b4-e54c-4da4-83bd-b7ae90243eb5">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>characterSet</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>UTF-8</value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="e98972e6-a66d-41d7-9173-1d90dffd39f3">
-          <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>closeSession</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value>false</value>
-          <record>false</record>
-        </staticBinding>
-      </bindings>
-      <transitions>
-        <transition id="36b49713-84a9-49d5-985f-7c76aabeee7a">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </destination>
-          <source>
-            <refId>800b14e9-9a2a-4eae-9f39-3437df15662f</refId>
-          </source>
-          <positions>
-            <point>
-              <x>657.0</x>
-              <y>395.0</y>
-            </point>
-            <point>
-              <x>360.0</x>
-              <y>224.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="b9412901-2a76-4499-b0d2-733c041686a5">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </destination>
-          <source>
-            <refId>800b14e9-9a2a-4eae-9f39-3437df15662f</refId>
-          </source>
-          <positions>
-            <point>
-              <x>646.0</x>
-              <y>386.3680981595092</y>
-            </point>
-            <point>
-              <x>594.0</x>
-              <y>387.0</y>
-            </point>
-            <point>
-              <x>466.0</x>
-              <y>317.0</y>
-            </point>
-            <point>
-              <x>366.0</x>
-              <y>242.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>40581c53-826b-4299-8839-7454f2b1af6c</refId>
-      </opRef>
-      <assignments>
-        <flowVariableAssignment id="e5a62948-b776-4352-911d-6202c0fd9c55">
-          <annotation></annotation>
-          <name>assignment</name>
-          <action>APPEND</action>
-          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
-          <contextKey>resultado</contextKey>
-          <expression id="e83889e4-6ab6-4706-b653-fa910c0446c8">
-            <annotation></annotation>
-            <name>Result Field: returnResult</name>
-            <fieldName>returnResult</fieldName>
-            <sourceType>RAWRESULT</sourceType>
-            <filters>
-              <replaceAllFilter id="38e13659-4dd6-4e47-b6d6-eed1b7b71836">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>User group</searchString>
-                <replaceString>Grupo</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="0c1b0919-9492-4894-9fd5-a0c2f0c9fe5c">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>added to security group</searchString>
-                <replaceString>agregado al grupo de seguridad</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <replaceAllFilter id="47b5469a-4e13-4431-b9f5-1edee97df0ce">
-                <annotation></annotation>
-                <name>Replace</name>
-                <ignoreCase>false</ignoreCase>
-                <searchString>with role</searchString>
-                <replaceString>con rol</replaceString>
-                <replaceType>ALL</replaceType>
-              </replaceAllFilter>
-              <regexFilter id="c7e9c520-4b99-4e2a-ac77-74217eb5932e">
-                <annotation></annotation>
-                <name>Regular Expression</name>
-                <expression>.*(?=\n)</expression>
-                <ignoreCase>true</ignoreCase>
-                <regType>JAVA</regType>
-                <entireString>true</entireString>
-                <multiLine>false</multiLine>
-              </regexFilter>
-            </filters>
-          </expression>
-        </flowVariableAssignment>
-      </assignments>
-      <throttleSize>0</throttleSize>
-    </step>
     <step id="80f26577-e9cd-4317-b4e5-0381ae177ceb">
       <annotation></annotation>
       <name>LogGeneral</name>
       <bounds>
-        <x>311.0</x>
-        <y>192.0</y>
+        <x>165.0</x>
+        <y>130.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -2794,36 +1472,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="f0b80366-889a-4f63-9cc4-afd4d32dda6d">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>caddac7d-d696-4915-b09d-8171fec44105</refId>
-          </destination>
-          <source>
-            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
-          </source>
-          <positions>
-            <point>
-              <x>361.0</x>
-              <y>226.0</y>
-            </point>
-            <point>
-              <x>202.0</x>
-              <y>406.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="8333b273-7638-4e4b-9b9e-2ca6009e4c56">
+        <transition id="a4386562-539f-4f91-bc99-750f2957fbfa">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -2832,7 +1481,7 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>caddac7d-d696-4915-b09d-8171fec44105</refId>
+            <refId>79725a19-40a6-4df5-8467-806278cfa65e</refId>
           </destination>
           <source>
             <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
@@ -2843,16 +1492,37 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
               <y>226.0</y>
             </point>
             <point>
-              <x>340.0147500701072</x>
-              <y>287.5192594670964</y>
+              <x>361.0</x>
+              <y>406.0</y>
             </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="75312d4f-5985-4f37-a211-db0acfa7b0c4">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d51c6030-bc91-46d5-be6b-13a596f0cfdc</refId>
+          </destination>
+          <source>
+            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
+          </source>
+          <positions>
             <point>
-              <x>260.45891051898707</x>
-              <y>377.5824740532702</y>
+              <x>361.0</x>
+              <y>226.0</y>
             </point>
             <point>
               <x>202.0</x>
-              <y>406.0</y>
+              <y>226.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -2872,8 +1542,8 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <annotation></annotation>
       <name>Agregar a archivo hosts</name>
       <bounds>
-        <x>178.0</x>
-        <y>0.0</y>
+        <x>433.0</x>
+        <y>130.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
@@ -2905,19 +1575,6 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <required>false</required>
           <isPersisted>true</isPersisted>
           <inputSymbol>host</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="c2594322-51b6-4ea0-8675-7de35ef4d511">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>razon_social</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <value></value>
           <record>false</record>
@@ -3068,20 +1725,27 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <assignments/>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="caddac7d-d696-4915-b09d-8171fec44105">
-      <annotation></annotation>
-      <name>ABM Spectrum</name>
+    <step id="31a96110-32ec-45bd-85f1-fd1776b1e525">
+      <annotation>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.31a96110-32ec-45bd-85f1-fd1776b1e525.description</annotation>
+      <name>Consulta Tenant</name>
       <bounds>
-        <x>152.0</x>
-        <y>372.0</y>
+        <x>140.0</x>
+        <y>4.0</y>
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="09e0b06e-0f48-43d1-b400-1428dc46c680">
-        <baseIcon>flow.png</baseIcon>
-        <basePath>System</basePath>
+      <iconSpec id="648cf86d-627f-44e8-9fec-9201d0b7f78b">
+        <baseIcon>workstation_network.png</baseIcon>
+        <basePath>/Others/</basePath>
         <readOnly>false</readOnly>
-        <layers/>
+        <layers>
+          <iconSpec id="5ffda757-d9f2-4cd2-b660-1447dcb589eb">
+            <baseIcon>remote.png</baseIcon>
+            <basePath>/Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
       </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
@@ -3096,33 +1760,102 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <staticBinding id="99f3d2be-5cee-4c74-9c0a-4a6f9633e385">
+        <userInputBinding id="695c795b-755d-4ba9-9c47-9f160992fa3a">
           <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.695c795b-755d-4ba9-9c47-9f160992fa3a.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="4b6223a9-b118-4e61-8318-ee3f67b2ef1e">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
-          <inputSymbol>ip_address</inputSymbol>
+          <inputSymbol>port</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="fbcf91df-f779-4780-9f45-3e9973d17905">
+        <staticBinding id="e790a9eb-c276-49fe-852d-df17a191649b">
           <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>command</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>sudo /opt/OV/bin/nnmsecurity.ovpl -listTenants | grep CLI_${id_suscriber} | awk &apos;{print $5}&apos;</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="e312a1e1-c564-413f-853e-b08fb01c20b6">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
           <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.e312a1e1-c564-413f-853e-b08fb01c20b6.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="894d8c56-54f6-4901-beff-54113d59bcc8">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.894d8c56-54f6-4901-beff-54113d59bcc8.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="ede610ef-8534-4775-8980-a85ec782821d">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
-          <inputSymbol>comunidad_snmp</inputSymbol>
+          <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>15000</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="86c83e64-31e3-46cb-a0d6-1e624e85e993">
+        <staticBinding id="487afc87-c47c-43db-b426-3231b8397b09">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -3130,123 +1863,42 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
-          <inputSymbol>spectrum_server</inputSymbol>
+          <inputSymbol>characterSet</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>spectrum.int.fibercorp.com.ar</value>
+          <value>UTF-8</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="99b50bdc-45ae-4432-8c52-66218ca2d4fc">
+        <staticBinding id="816b094f-0934-4758-a6e7-3f6008cd4e70">
           <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
+          <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
           <isPersisted>true</isPersisted>
-          <inputSymbol>archivolog</inputSymbol>
+          <inputSymbol>closeSession</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>false</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="d74d5d0b-fd87-4665-8fe1-2d35c6bc57cc">
+        <staticBinding id="f7163d0a-83ce-4bfe-bea9-ecf27213f0ce">
           <annotation></annotation>
-          <fromContextKey>username</fromContextKey>
-          <assignFromContext>true</assignFromContext>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
-          <required>false</required>
+          <required>true</required>
           <isPersisted>true</isPersisted>
-          <inputSymbol>usuario_ss</inputSymbol>
+          <inputSymbol>pty</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="ed06b351-dfdd-43d8-a52e-272c8087c64d">
-          <annotation></annotation>
-          <fromContextKey>password</fromContextKey>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>password_ss</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="1cce5ed7-d555-4585-9c1f-6e0f75fa1ae6">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>ip_producto</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="f531f415-6ffc-49ba-aef8-a289f32c3b68">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>razon_social</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
-          <record>false</record>
-        </staticBinding>
-        <staticBinding id="bf661309-63e9-4509-aba1-88b959d81de0">
-          <annotation></annotation>
-          <assignFromContext>true</assignFromContext>
-          <assignToContext>false</assignToContext>
-          <inputType>STRING</inputType>
-          <isList>false</isList>
-          <required>false</required>
-          <isPersisted>true</isPersisted>
-          <inputSymbol>id_suscriber</inputSymbol>
-          <listDelimiter>,</listDelimiter>
-          <value></value>
+          <value>true</value>
           <record>false</record>
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="3e1b1396-38a4-4574-88f5-829d3b12f379">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>d51c6030-bc91-46d5-be6b-13a596f0cfdc</refId>
-          </destination>
-          <source>
-            <refId>caddac7d-d696-4915-b09d-8171fec44105</refId>
-          </source>
-          <positions>
-            <point>
-              <x>202.0</x>
-              <y>406.0</y>
-            </point>
-            <point>
-              <x>202.0</x>
-              <y>226.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="81a4ebff-1ce3-41eb-8621-5924b8943fae">
+        <transition id="f8bb7b12-fc5c-49bf-a7fa-9029e0a12ad9">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -3255,19 +1907,48 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>79725a19-40a6-4df5-8467-806278cfa65e</refId>
+            <refId>31c95e79-397b-411b-a0b6-3ac0be3dd763</refId>
           </destination>
           <source>
-            <refId>caddac7d-d696-4915-b09d-8171fec44105</refId>
+            <refId>31a96110-32ec-45bd-85f1-fd1776b1e525</refId>
           </source>
           <positions>
             <point>
-              <x>202.0</x>
-              <y>406.0</y>
+              <x>190.0</x>
+              <y>38.0</y>
             </point>
             <point>
-              <x>361.0</x>
-              <y>406.0</y>
+              <x>303.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="12fa2311-65a7-4329-864a-086c8c4fba69">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>80f26577-e9cd-4317-b4e5-0381ae177ceb</refId>
+          </destination>
+          <source>
+            <refId>31a96110-32ec-45bd-85f1-fd1776b1e525</refId>
+          </source>
+          <positions>
+            <point>
+              <x>190.0</x>
+              <y>38.0</y>
+            </point>
+            <point>
+              <x>215.0</x>
+              <y>164.0</y>
             </point>
           </positions>
           <labelPosition>
@@ -3278,9 +1959,70 @@ e5c1b8b8-5f62-40a9-b0b9-107f4eb0a5e3.ee7fb4cd-e309-44c7-bb2b-b9cf427bc13b.prompt
       </transitions>
       <properties/>
       <opRef>
-        <refId>61f9b7c6-dc88-4653-b4ec-d3e8eec4ebb8</refId>
+        <refId>ebd9fb15-78b7-492a-a307-83cccc204654</refId>
       </opRef>
-      <assignments/>
+      <assignments>
+        <flowVariableAssignment id="64c8cbf7-052b-4eb7-af47-b6fc3dd1d53e">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>tenant</contextKey>
+          <expression id="17c38f4f-097b-4de6-bd99-06234cfc79b4">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <regexFilter id="9196d9a7-5f8e-492c-a08c-96e165721987">
+                <annotation></annotation>
+                <name>Regular Expression</name>
+                <expression>.*[^\r?\n|\r]</expression>
+                <ignoreCase>false</ignoreCase>
+                <regType>JAVA</regType>
+                <entireString>true</entireString>
+                <multiLine>false</multiLine>
+              </regexFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="09615526-ec30-4d4f-bcc4-8f974853e1a7">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>APPEND</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>resultado</contextKey>
+          <expression id="84148f26-9ce8-474d-b0e9-b1a9d47aee0d">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="53c2e5e2-2d17-4692-97d6-fd0ce01a5b0f">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>Tenant existe </text>
+                <position>BEGINNING</position>
+              </concat>
+              <regexFilter id="61e926dd-94b6-4a6d-8a55-4909aa744db5">
+                <annotation></annotation>
+                <name>Regular Expression</name>
+                <expression>.*[^\r?\n|\r]</expression>
+                <ignoreCase>true</ignoreCase>
+                <regType>JAVA</regType>
+                <entireString>true</entireString>
+                <multiLine>false</multiLine>
+              </regexFilter>
+              <concat id="23287917-3f60-4358-936f-a7784b91a26c">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>,</text>
+                <position>END</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
       <throttleSize>0</throttleSize>
     </step>
   </steps>

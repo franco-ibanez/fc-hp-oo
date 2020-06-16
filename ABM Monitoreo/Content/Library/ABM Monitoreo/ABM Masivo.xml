@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow id="2ef5c5b2-7321-412c-aba2-d07eb239697f">
   <descriptionCdata><![CDATA[2ef5c5b2-7321-412c-aba2-d07eb239697f.91ae5f77-32e8-4e90-944e-b0e8ee7b50ac.description=<pre>This operation iterates through a list of values. It is not recommended to modify the value of the "list" and "separator" inputs during the iteration process.\n\nInputs\:\n    list - The list to iterate through.\n    separator - A delimiter separating the list elements.\nDefault value\: \u2018,\u2019 (comma) \n\nResults\:\n    resultString - The current list element (if the response is "has more").\n\nResponses\:\n    has more - Another value was found in the list and it has been returned.\n    no more - The iterator has gone through the entire list. This response is returned once per list iteration.  A subsequent call to the List iterator operation restarts the list iteration process.\n    failure - The operation completed unsuccessfully.\n\nNote\:\n   The position of the iterator in the list is tracked by each step's unique identifier. Therefore, you can simultaneously iterate through the same list from multiple steps.\n</pre>
-2ef5c5b2-7321-412c-aba2-d07eb239697f.de717651-350b-4875-94f8-c779faaaeabd.prompt=Ingrese IPs separadas por "\\"
+2ef5c5b2-7321-412c-aba2-d07eb239697f.b40f6fcf-3df6-4f08-a34c-ff8471352967.prompt=Ingrese IPs separadas por "\\"
 ]]></descriptionCdata>
   <annotation></annotation>
   <name>ABM Masivo</name>
@@ -53,6 +53,19 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="316a0dc4-bdd6-487e-a698-5e152bcc6901">
+        <baseIcon>wrench.png</baseIcon>
+        <basePath>utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="112c77b2-f408-42cb-a11a-d3f59d97a415">
+            <baseIcon>iterate.png</baseIcon>
+            <basePath>Annotations</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -66,10 +79,10 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="de717651-350b-4875-94f8-c779faaaeabd">
+        <userInputBinding id="b40f6fcf-3df6-4f08-a34c-ff8471352967">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>true</required>
@@ -77,7 +90,7 @@
           <inputSymbol>list</inputSymbol>
           <listDelimiter>,</listDelimiter>
           <record>false</record>
-          <prompt>2ef5c5b2-7321-412c-aba2-d07eb239697f.de717651-350b-4875-94f8-c779faaaeabd.prompt</prompt>
+          <prompt>2ef5c5b2-7321-412c-aba2-d07eb239697f.b40f6fcf-3df6-4f08-a34c-ff8471352967.prompt</prompt>
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
@@ -215,6 +228,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="4bfc3f8a-4e6a-44b1-9d61-cf8c850f986d">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -303,6 +322,12 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="d85badde-816e-41ac-9ef0-a9ed8c54bf6b">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>

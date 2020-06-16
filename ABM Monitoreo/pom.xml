@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>DEFAULT</groupId>
   <artifactId>ABM Monitoreo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
   <dependencies>
     <dependency>
       <groupId>DEFAULT</groupId>
@@ -15,6 +15,11 @@
       <groupId>DEFAULT</groupId>
       <artifactId>Nomenclador</artifactId>
       <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>DEFAULT</groupId>
+      <artifactId>Monitoreo Microfocus</artifactId>
+      <version>1.0.25-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

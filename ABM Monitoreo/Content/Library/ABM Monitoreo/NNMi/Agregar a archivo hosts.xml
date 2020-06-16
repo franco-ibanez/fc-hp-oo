@@ -183,7 +183,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>timeout</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>5000</value>
+          <value>10000</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="4d15a7b3-2736-4356-9fc4-1aaa681c5861">
@@ -304,7 +304,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="0b82e0df-2915-4b91-b3eb-5a01e4beb6b5">
+      <iconSpec id="b3305222-e348-4172-ab48-6176829088e5">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -354,12 +354,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="10ee1ba3-a619-4cb8-a102-fb2f9c28532d">
-        <baseIcon>return_failure.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -461,7 +455,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>matchTo</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>${id_suscriber}-${razon_social}-${id_producto}</value>
+          <value>${id_suscriber}-${id_producto}</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="b3874cb6-9cd2-47d7-b5ac-9e5d6da124f7">
@@ -745,7 +739,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>command</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>sudo printf &quot;${ip_address}\t${id_suscriber}-${razon_social}-${id_producto}\n&quot; | sudo tee -a /etc/hosts</value>
+          <value>sudo printf &quot;${ip_address}\t${id_suscriber}-${id_producto}\n&quot; | sudo tee -a /etc/hosts</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="bf91b955-ef52-486a-8c1a-175d10cc8701">
